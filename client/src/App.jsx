@@ -20,7 +20,6 @@ function App() {
   const [floatingObjects, setFloatingObjects] = useState([]);
   const [appState, setAppState] = useState("welcome");
   const [showWelcome, setShowWelcome] = useState(true);
-
   const [size, setSize] = useState("medium");
   const [color, setColor] = useState("#ffffff");
   const [brightness, setBrightness] = useState("medium");
