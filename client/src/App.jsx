@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { socket } from "./SocketFactory";
 import nightSky from "./assets/night_sky.jpg";
 import Welcome from "./components/Welcome";
@@ -6,6 +6,14 @@ import Star from "./components/Star";
 import "./App.css";
 
 function App() {
+  const [stars, setStars] = useState([])
+
+  useEffect(() => {
+    socket.on('stars-update', (stars)) {
+      setStars(JSON.parse(stars))
+    }
+  })
+  
   return (
     <div
       style={{
