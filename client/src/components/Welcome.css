@@ -17,7 +17,7 @@
   justify-content: center;
   align-items: center;
   z-index: 100;
-  animation: showAndHide 10s forwards;
+  animation: showAndHide 5s ease-in;
 }
 
 .box h2 {
