@@ -30,7 +30,6 @@ function App() {
   const [brightness, setBrightness] = useState("medium");
 
   let setStar = false;
-  const [showWelcome, setShowWelcome] = useState(true);
 
   if (appState === "setStar") {
     setStar = true;
@@ -79,7 +78,6 @@ function App() {
       <div className="forest-skyline">
         <img src={forestSkyline} alt="forest skyline" />
       </div>
-<<<<<<< Updated upstream
 
       {setStar && (
         <CustomizeStar
