@@ -24,7 +24,7 @@
   padding: 0;
   margin: 0;
   font-weight: normal;
-  font-size:xx-large;
+  font-size: 5vh;
 }
 
 .box p:last-child:after {
