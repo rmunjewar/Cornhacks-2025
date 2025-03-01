@@ -20,7 +20,6 @@ const floatingObjects = [corn, cow, ufo, astronaut, moon];
 function App() {
   const [stars, setStars] = useState(exampleStars);
   const [floatingObjects, setFloatingObjects] = useState([]);
-  const [componentPosition, setComponentPosition] = useState(null);
   const [appState, setAppState] = useState("welcome");
   const [showWelcome, setShowWelcome] = useState(true);
 
@@ -28,7 +27,7 @@ function App() {
   const [color, setColor] = useState("#ffffff");
   const [brightness, setBrightness] = useState("medium");
 
-  let setStar = true;
+  let setStar = false;
 
   if (appState === "setStar") {
     setStar = true;
@@ -45,9 +44,6 @@ function App() {
     const y = event.clientY; // Y position of click
 
     setAppState("setStar");
-
-    // Set the position of the component to render
-    setComponentPosition({ x, y });
   };
 
   useEffect(() => {
@@ -88,6 +84,7 @@ function App() {
           setColor={setColor}
         />
       )}
+
       {showWelcome && <Welcome />}
 
       <RenderObjects objects={floatingObjects} />
@@ -100,7 +97,7 @@ function RenderObjects(objects) {
   return (
     <div>
       {objects.map((object, index) => (
-        <Object image={object.image} />
+        <Object key={index} image={object.image} x={object.x} y={object.y} />
       ))}
     </div>
   );
@@ -111,6 +108,7 @@ function RenderStars(stars) {
     <div>
       {stars.map((star, index) => (
         <Star
+          key={index}
           size={star.size}
           color={star.color}
           brightness={star.brightness}
