@@ -25,8 +25,8 @@ function App() {
   const [size, setSize] = useState("medium");
   const [color, setColor] = useState("#ffffff");
   const [brightness, setBrightness] = useState("medium");
-  const [setStar, setSetStar] = useState(true);
-
+  const [setStar, setSetStar] = useState(false);
+  const [submit, setSubmit] = useState(false);
 
   const addStar = (size, color, brightness, x, y) => {
     const newStar = {
@@ -110,6 +110,8 @@ function App() {
           setBrightness={setBrightness}
           color={color}
           setColor={setColor}
+          submit={submit}
+          setSubmit={setSubmit}
         />
       )}
       {showWelcome && <Welcome />}
