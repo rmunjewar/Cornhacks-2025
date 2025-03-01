@@ -34,3 +34,28 @@
   box-shadow: 0 0 0.5vw var(--glow-color), 0 0 1vw var(--glow-color),
     0 0 1.5vw var(--glow-color);
 }
+
+@keyframes growAndDisappear {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(2);
+    background-color: red;
+    opacity: 1;
+  }
+  75% {
+    transform: scale(2.5);
+    background-color: orange;
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
+.object {
+  animation: growAndDisappear 2s ease-out forwards; /* Adjust duration as needed */
+}
