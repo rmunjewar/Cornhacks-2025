@@ -8,13 +8,19 @@ import nightSky from './assets/astronaut.jpg';
 import nightSky from './assets/moon.jpg';
 import Welcome from "./components/Welcome";
 import Star from "./components/Star";
+<<<<<<< HEAD
 import './App.css'
+=======
+import CustomizeStar from "./components/CustomizeStar";
+import "./App.css";
+>>>>>>> 59ae408f19c59d4f5dee66a57bae13b1bd405aeb
 
 function App() {
 
   const [floatingObjects, setFloatingObjects] = useState([]);
   
   return (
+<<<<<<< HEAD
 
     <div 
       style = {{
@@ -26,6 +32,9 @@ function App() {
         width: "100vw",
       }}
     ></div>
+=======
+    <div></div>
+>>>>>>> 59ae408f19c59d4f5dee66a57bae13b1bd405aeb
   );
 }
 
