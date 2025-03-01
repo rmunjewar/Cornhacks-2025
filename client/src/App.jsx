@@ -21,14 +21,14 @@ function App() {
   const [stars, setStars] = useState(exampleStars);
   const [floatingObjects, setFloatingObjects] = useState([]);
   const [componentPosition, setComponentPosition] = useState(null);
-  const [appState, setAppState] = useState("view");
+  const [appState, setAppState] = useState("welcome");
+  const [showWelcome, setShowWelcome] = useState(true);
 
   const [size, setSize] = useState("medium");
   const [color, setColor] = useState("#ffffff");
   const [brightness, setBrightness] = useState("medium");
 
   let setStar = true;
-  const [showWelcome, setShowWelcome] = useState(true);
 
   if (appState === "setStar") {
     setStar = true;
@@ -89,6 +89,7 @@ function App() {
         />
       )}
       {showWelcome && <Welcome />}
+
       <renderObjects objects={floatingObjects} />
       <renderStars stars={stars} />
     </div>
