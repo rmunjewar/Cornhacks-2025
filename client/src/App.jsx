@@ -13,12 +13,14 @@ import forestSkyline from "./assets/forest-skyline.png";
 import CustomizeStar from "./components/CustomizeStar";
 import "./App.css";
 
+import { exampleStars } from "./ExampleStars";
+
 const floatingObjects = [corn, cow, ufo, astronaut, moon];
 
 function App() {
   // const [floatingObjects, setFloatingObjects] = useState([]);
 
-  const [stars, setStars] = useState([]);
+  const [stars, setStars] = useState(exampleStars);
   const [floatingObjects, setFloatingObjects] = useState([]);
   const [componentPosition, setComponentPosition] = useState(null);
   const [appState, setAppState] = useState("view");
