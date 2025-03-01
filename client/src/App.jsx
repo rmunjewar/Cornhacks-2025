@@ -8,15 +8,18 @@ import astronaut from "./assets/astronaut.jpeg";
 import moon from "./assets/moon.jpeg";
 import Welcome from "./components/Welcome";
 import Star from "./components/Star";
+import Object from "./components/Object";
 import forestSkyline from "./assets/forest-skyline.png";
 import CustomizeStar from "./components/CustomizeStar";
 import "./App.css";
+
+import { exampleStars } from "./ExampleStars";
 
 const floatingObjects = [corn, cow, ufo, astronaut, moon];
 
 function App() {
 
-  const [stars, setStars] = useState([]);
+  const [stars, setStars] = useState(exampleStars);
   const [floatingObjects, setFloatingObjects] = useState([]);
   const [componentPosition, setComponentPosition] = useState(null);
   const [appState, setAppState] = useState("view");
@@ -62,16 +65,36 @@ function App() {
       <div className="forest-skyline">
         <img src={forestSkyline} alt="forest skyline" />
       </div>
+      <renderObjects objects={floatingObjects} />
+      <renderStars stars={stars} />
     </div>
   );
 }
 
-function renderObjects() {
-  <div>
-    {floatingObjects.map((object, index) => (
-      <div key={index} x={x} y={y} />
-    ))}
-  </div>;
+function renderObjects(objects) {
+  return (
+    <div>
+      {objects.map((object, index) => (
+        <Object image={object.image} />
+      ))}
+    </div>
+  );
+}
+
+function renderStars(stars) {
+  return (
+    <div>
+      {stars.map((star, index) => (
+        <Star
+          size={star.size}
+          color={star.color}
+          brightness={star.brightness}
+          x={star.x}
+          y={star.y}
+        ></Star>
+      ))}
+    </div>
+  );
 }
 
 export default App;
