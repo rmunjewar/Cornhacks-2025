@@ -15,14 +15,18 @@ import "./App.css";
 
 import { exampleStars } from "./ExampleStars";
 
+const objectImages = [corn, cow, ufo, astronaut, moon];
+
 function App() {
   const [stars, setStars] = useState([]);
   const [floatingObjects, setFloatingObjects] = useState([]);
-  const [appState, setAppState] = useState("welcome");
+  // const [appState, setAppState] = useState("welcome");
   const [showWelcome, setShowWelcome] = useState(true);
   const [size, setSize] = useState("medium");
   const [color, setColor] = useState("#ffffff");
   const [brightness, setBrightness] = useState("medium");
+  const [setStar, setSetStar] = useState(false);
+
 
   const addStar = (size, color, brightness, x, y) => {
     const newStar = {
@@ -43,15 +47,8 @@ function App() {
     return () => clearTimeout(timeout);
   }, []);
 
-  let setStar = false;
-
-  if (appState === "setStar") {
-    setStar = true;
-  }
-
   // Function to handle the click event
   const handleClick = (event) => {
-
     const x = event.clientX; // X position of click in pixels
     const y = event.clientY; // Y position of click in pixels
 
@@ -63,9 +60,12 @@ function App() {
     const xInVW = (x / viewportWidth) * 100;
     const yInVH = (y / viewportHeight) * 100;
 
-    addStar(size, color, brightness, x, y);
+    setSetStar(false);
 
-    setAppState("setStar");
+    if (submit) {
+      addStar(size, color, brightness, xInVW, yInVH);
+      setSetStar(false);
+    }
   };
 
   useEffect(() => {
