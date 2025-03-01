@@ -1,7 +1,7 @@
 .circle {
   border-radius: 50%;
   --backgroundColor: white;
-  --glow-color: #fff;
+  --glow-color: #fffff;
   position: absolute;
   z-index: 100;
 }
