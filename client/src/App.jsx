@@ -78,6 +78,7 @@ function App() {
     });
     socket.on("timeout-update", (timeout) => {
       setNextTimeout(timeout);
+      setTimeRemaining(timeRemaining);
     });
 
     socket.on("shooting-star", (shootingStar) => {
