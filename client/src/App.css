@@ -3,9 +3,9 @@
   height: 100vh;
   max-width: 100%;
   min-height: 100vh;
-  /* display: flex; */
+  display: flex;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 0rem;
   flex-direction: column;
   text-align: center;
   overflow: hidden;
@@ -46,7 +46,6 @@ body {
   }
 }
 
-
 .forest-skyline {
   position: absolute;
   bottom: 0;
@@ -54,14 +53,19 @@ body {
   width: 100%;
   height: auto;
   z-index: 20;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
 
 .forest-skyline img {
   width: 100%;
-  height: 70%;
+  height: auto;
   max-height: 55vh;
   object-fit: cover;
   display: block;
+  margin: 0;
+  border: 0;
 }
 
 @media (prefers-reduced-motion: no-preference) {

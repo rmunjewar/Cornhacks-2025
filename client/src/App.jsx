@@ -15,7 +15,6 @@ import "./App.css";
 const floatingObjects = [corn, cow, ufo, astronaut, moon];
 
 function App() {
-  // const [floatingObjects, setFloatingObjects] = useState([]);
 
   const [stars, setStars] = useState([]);
   const [floatingObjects, setFloatingObjects] = useState([]);
