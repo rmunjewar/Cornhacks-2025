@@ -23,6 +23,8 @@ function App() {
   const [componentPosition, setComponentPosition] = useState(null);
   const [appState, setAppState] = useState("view");
   let setStar = false;
+  const [showWelcome, setShowWelcome] = useState(true);
+
 
   if (appState === "setStar") {
     setStar = true;
@@ -30,6 +32,11 @@ function App() {
 
   // Function to handle the click event
   const handleClick = (event) => {
+    if (showWelcome) {
+      setShowWelcome(false);
+      setAppState("view");
+      return;
+    }
     const x = event.clientX; // X position of click
     const y = event.clientY; // Y position of click
 
@@ -67,6 +74,7 @@ function App() {
         <img src={forestSkyline} alt="forest skyline" />
       </div>
       {isVisible && <CustomizeStar />}
+      {showWelcome && <Welcome />}
       <renderObjects objects={floatingObjects} />
       <renderStars stars={stars} />
     </div>
