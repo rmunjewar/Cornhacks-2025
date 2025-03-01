@@ -1,6 +1,7 @@
 import "./CustomizeStar.css";
 import { useState } from "react";
 import { socket } from "../SocketFactory";
+import Star from "./Star";
 
 function CustomizeStar({ starX, starY, onAddStar }) {
   const [size, setSize] = useState("medium");
@@ -21,6 +22,7 @@ function CustomizeStar({ starX, starY, onAddStar }) {
 
   return (
     <>
+      <Star x={starX} y={starY} size={size} color={color} brightness={brightness} />
       <div className="container">
         <div className="popupBox">
           <div className="heading">Customize your star!</div>
