@@ -16,7 +16,7 @@ import "./App.css";
 import { exampleStars } from "./ExampleStars";
 
 function App() {
-  const [stars, setStars] = useState(exampleStars);
+  const [stars, setStars] = useState([]);
   const [floatingObjects, setFloatingObjects] = useState([]);
   const [appState, setAppState] = useState("welcome");
   const [showWelcome, setShowWelcome] = useState(true);
