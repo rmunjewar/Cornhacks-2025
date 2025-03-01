@@ -56,6 +56,6 @@
   }
 }
 
-.object {
-  animation: growAndDisappear 2s ease-out forwards; /* Adjust duration as needed */
+.superNovaClass {
+  animation: growAndDisappear 3s ease-out forwards;
 }
