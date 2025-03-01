@@ -11,8 +11,6 @@
   overflow: hidden;
 }
 
-<<<<<<< HEAD
-=======
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -26,7 +24,6 @@
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
->>>>>>> 1ff5ac3577b7ffd0bc7016755f5edd9f39493cac
 html,
 body {
   background-image: url("./assets/night_sky.jpg");
@@ -38,8 +35,6 @@ body {
   margin: 0;
   padding: 0;
   overflow: hidden;
-<<<<<<< HEAD
-=======
 }
 
 @keyframes logo-spin {
@@ -80,5 +75,4 @@ body {
 
 .read-the-docs {
   color: #888;
->>>>>>> 1ff5ac3577b7ffd0bc7016755f5edd9f39493cac
 }
