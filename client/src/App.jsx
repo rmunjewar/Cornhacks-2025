@@ -1,33 +1,32 @@
-import { useState } from "react"
-import { socket } from "./SocketFactory"
+import { useState } from "react";
+import { socket } from "./SocketFactory";
 import nightSky from "./assets/night_sky.jpg";
-import corn from './assets/corn.jpg';
-import cow from './assets/cow.jpg';
-import ufo from './assets/ufo.jpg';
-import astronaut from './assets/astronaut.jpg';
-import moon from './assets/moon.jpg';
+import corn from "./assets/corn.jpeg";
+import cow from "./assets/cow.jpeg";
+import ufo from "./assets/ufo.jpeg";
+import astronaut from "./assets/astronaut.jpeg";
+import moon from "./assets/moon.jpeg";
 import Welcome from "./components/Welcome";
 import Star from "./components/Star";
-import './App.css'
+import "./App.css";
 
-const floatingObjects = [corn, cow, ufo, astronaut, moon]
+const floatingObjects = [corn, cow, ufo, astronaut, moon];
 
 function App() {
-
   const [floatingObjects, setFloatingObjects] = useState([]);
-  
-  const [stars, setStars] = useState([])
+
+  const [stars, setStars] = useState([]);
 
   useEffect(() => {
-    socket.on('stars-update', (stars)) {
-      setStars(JSON.parse(stars))
+    socket.on("stars-update", stars);
+    {
+      setStars(JSON.parse(stars));
     }
-  })
-  
-  return (
+  });
 
-    <div 
-      style = {{
+  return (
+    <div
+      style={{
         backgroundImage: `url(${nightSky})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
