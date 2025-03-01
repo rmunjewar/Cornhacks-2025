@@ -9,6 +9,7 @@ import moon from "./assets/moon.jpeg";
 import Welcome from "./components/Welcome";
 import Star from "./components/Star";
 import forestSkyline from "./assets/forest-skyline.png"
+import CustomizeStar from "./components/CustomizeStar";
 import "./App.css";
 
 const floatingObjects = [corn, cow, ufo, astronaut, moon];
