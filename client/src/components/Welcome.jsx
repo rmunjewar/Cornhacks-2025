@@ -6,7 +6,7 @@ function Welcome() {
   return (
     <div className="box">
       <h2>Welcome!</h2>
-      <p>Place your stars in the sky.</p>
+      <p>Click to add your stars to the sky!</p>
     </div>
   );
 }
