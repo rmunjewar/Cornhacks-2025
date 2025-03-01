@@ -11,9 +11,9 @@
     display: flex;
     flex-direction: column;
     background: rgba(255, 255, 255, 0.25);
-    padding: 10px;
-    width: 400px;
-    border-radius: 25px;
+    padding: 2vh;
+    width: 33vw;
+    border-radius: 2vh;
     text-align: center;
     color: rgb(251, 251, 251);
     /* margin-top: auto; */
@@ -21,7 +21,7 @@
   }
 
 .heading {
-    font-size: 36px;
+    font-size: xx-large;
     color: rgb(251, 251, 251);
     text-shadow: 0 0 0.07vw #03030385, 0 0 0.1vw #08080884, 0 0 0.2vw #e6ede6,
     0 0 0.3vw #e6ede6, 0 0 0.3vw #e6ede6, 0 0 0.4vw #e6ede6, 0 0 0.6vw #e6ede6;
@@ -31,7 +31,8 @@
     display: flex;
     flex-direction: row;
     color: rgb(251, 251, 251);
-    margin: 5px;
-    gap: 10px;
-    padding: 10px;
+    margin: .2vw;
+    gap: .5vw;
+    padding: 2vw;
+    font-size: medium;
 }

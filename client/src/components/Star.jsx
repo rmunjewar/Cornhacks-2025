@@ -24,8 +24,8 @@ function Star({ size, color, brightness, x, y }) {
       style={{
         "--backgroundColor": color,
         "--glow-color": color,
-        top: x,
-        left: y,
+        top: y,
+        left: x,
       }}
     ></div>
   );

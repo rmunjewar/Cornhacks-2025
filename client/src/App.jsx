@@ -32,7 +32,7 @@ function App() {
     return () => clearTimeout(timeout);
   }, []);
 
-  let setStar = false;
+  let setStar = true;
 
   if (appState === "setStar") {
     setStar = true;
@@ -72,6 +72,7 @@ function App() {
         minHeight: "100vh",
         width: "100vw",
         overflow: "hidden",
+        zIndex: 0,
       }}
       onClick={handleClick}
     >
