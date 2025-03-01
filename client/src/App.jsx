@@ -24,6 +24,17 @@ function App() {
   const [color, setColor] = useState("#ffffff");
   const [brightness, setBrightness] = useState("medium");
 
+  const addStar = (size, color, brightness, x, y) => {
+    const newStar = {
+      x: x,
+      y: y,
+      size: size,
+      color: color,
+      brightness: brightness,
+    };
+    setStars((prevStars) => [...prevStars, newStar]);
+  };
+
   useEffect(() => {
     const timeout = setTimeout(() => {
       setShowWelcome(false);
@@ -41,8 +52,18 @@ function App() {
   // Function to handle the click event
   const handleClick = (event) => {
 
-    const x = event.clientX; // X position of click
-    const y = event.clientY; // Y position of click
+    const x = event.clientX; // X position of click in pixels
+    const y = event.clientY; // Y position of click in pixels
+
+    // Get the viewport dimensions
+    const viewportWidth = window.innerWidth;
+    const viewportHeight = window.innerHeight;
+
+    // Convert the pixel values to vw and vh
+    const xInVW = (x / viewportWidth) * 100;
+    const yInVH = (y / viewportHeight) * 100;
+
+    addStar(size, color, brightness, x, y);
 
     setAppState("setStar");
   };
