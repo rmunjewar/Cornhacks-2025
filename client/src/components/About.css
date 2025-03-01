@@ -1,10 +1,17 @@
 .container {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     height: 100vh;
     align-items: center;
     margin-top: 3vw;
+}
+.buttonContainer {
+    justify-content: baseline;
+    height: 100vh;
+    align-items: baseline;
+    margin-bottom: 3vw;
+    margin-right: 3vw;
 }
 
 .popupBox {
@@ -32,38 +39,32 @@
     padding: 0;
 }
 
-.dropDownContainer {
-    display: flex;
-    flex-direction: row;
+.subheading {
+    font-size: 2vw;
     color: rgb(251, 251, 251);
-    margin: 0.2vw;
-    gap: 2vw;
-    padding: 1vw;
-    font-size: 1vw;
+    text-shadow: 0 0 0.07vw #03030385, 0 0 0.1vw #08080884, 0 0 0.2vw #e6ede6,
+        0 0 0.3vw #e6ede6, 0 0 0.3vw #e6ede6, 0 0 0.4vw #e6ede6, 0 0 0.6vw #e6ede6;
+    padding: 0;
 }
 
-.dropDownContainer select {
+.description {
     font-size: 1vw;
-    border-radius: 1vw;
-    width: 9vw;
-    height: 2vw;
-    padding: 0.5vh;
-    font-family: "Electrolize", sans-serif;
-    font-weight: 400;
-    font-style: normal;
+    color: rgb(251, 251, 251);
 }
 
-.submit {
+.aboutButton {
+    position: absolute;
     display: flex;
+    border-radius: 50%;
     justify-content: center;
     align-items: center;
-    font-size: 2vh;
-    width: 5vw;
-    height: 2vw;
-    /* padding: 1.5vh; */
-    margin-top: 1vw;
+    font-size: 3.5vw;
+    width: 3.5vw;
+    height: 3.5vw;
     color: rgb(251, 251, 251);
-    box-shadow: 0 0 0.07vw #03030385, 0 0 0.1vw #08080884, 0 0 0.2vw #e6ede6,
-        0 0 0.3vw #e6ede6, 0 0 0.3vw #e6ede6, 0 0 0.4vw #e6ede6, 0 0 0.6vw #e6ede6;
-    background-color: rgba(251, 251, 251, 0.4);
+    box-shadow: 0 0 0.4vw #646464, 0 0 0.4vw #646464, 0 0 0.4vw #646464;
+    background-color: transparent;
+    bottom: 3vw;
+    right: 3vw;
+    z-index: 50;
 }
