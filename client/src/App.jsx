@@ -51,7 +51,6 @@ function App() {
 
   // Function to handle the click event
   const handleClick = (event) => {
-
     const x = event.clientX; // X position of click in pixels
     const y = event.clientY; // Y position of click in pixels
 
@@ -63,9 +62,12 @@ function App() {
     const xInVW = (x / viewportWidth) * 100;
     const yInVH = (y / viewportHeight) * 100;
 
-    addStar(size, color, brightness, x, y);
-
     setAppState("setStar");
+
+    if (submit) {
+      addStar(size, color, brightness, x, y);
+      setAppState("view");
+    }
   };
 
   useEffect(() => {
