@@ -25,7 +25,7 @@ function App() {
   const [size, setSize] = useState("medium");
   const [color, setColor] = useState("#ffffff");
   const [brightness, setBrightness] = useState("medium");
-  const [setStar, setSetStar] = useState(false);
+  const [setStar, setSetStar] = useState(true);
 
 
   const addStar = (size, color, brightness, x, y) => {
