@@ -1,14 +1,14 @@
 import "./CustomizeStar.css";
 import { useState } from "react";
 
-function CustomizeStar(
+function CustomizeStar({
   size,
   setSize,
   color,
   setColor,
   brightness,
-  setBrightness
-) {
+  setBrightness,
+}) {
   return (
     <>
       <div className="container">
