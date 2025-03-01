@@ -57,6 +57,9 @@ function App() {
     socket.on("stars-update", (stars) => {
       setStars(JSON.parse(stars));
     });
+    socket.on("timeout-update", (timeout) => {
+      
+    })
 
     socket.on("shooting-star", (shootingStar) => {
       setFloatingObjects([...floatingObjects, shootingStar]);

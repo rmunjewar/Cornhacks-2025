@@ -20,16 +20,21 @@ const io = new Server(expressServer, {
 // More back-end should go here
 let stars = exampleStars
 
-const TICK_RATE = 10;
+const TICK_RATE = 100;
 const ROTATE = {
     x: 50,
     y: 100,
-    theta: -0.01
+    theta: -0.001
 }
 
 const SHOOTING_STAR_CHANCE = 0
 const SUPERNOVA_CHANCE = 0
 const UFO_CHANCE = 0
+
+// Function to define the amount of time the client has to wait before placing another star, in milliseconds
+function getTimeout() {
+    return 5000 + 55 * Math.pow(stars.length, 2)
+}
 
 // Rotates all stars about the point ROTATE
 function rotateStars() {
@@ -150,5 +155,6 @@ io.on('connection', socket => {
     // listening for messages...
     socket.on('star-add', (star) => {
         stars.push(star)
+        io.emit('timeout-update', getTimeout())
     })
 })
