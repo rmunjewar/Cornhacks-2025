@@ -37,7 +37,7 @@ function App() {
       color: color,
       brightness: brightness,
     };
-    setStars((prevStars) => [...prevStars, newStar]);
+    socket.emit('star-add', newStar)
   };
 
   useEffect(() => {

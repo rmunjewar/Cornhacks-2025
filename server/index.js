@@ -20,11 +20,11 @@ const io = new Server(expressServer, {
 // More back-end should go here
 const stars = exampleStars
 
-const TICK_RATE = 1000;
+const TICK_RATE = 100;
 const ROTATE = {
     x: 50,
     y: 100,
-    theta: -0.0001
+    theta: -0.001
 }
 
 const SHOOTING_STAR_CHANCE = 0
