@@ -20,25 +20,13 @@ const objectImages = [corn, cow, ufo, astronaut, moon];
 function App() {
   const [stars, setStars] = useState([]);
   const [floatingObjects, setFloatingObjects] = useState([]);
-  const [appState, setAppState] = useState("clickAllow");
+  const [appState, setAppState] = useState("view");
   const [showWelcome, setShowWelcome] = useState(true);
-  const [size, setSize] = useState("medium");
-  const [color, setColor] = useState("#ffffff");
-  const [brightness, setBrightness] = useState("medium");
-  const [setStar, setSetStar] = useState(false);
-  const [submit, setSubmit] = useState(false);
-  const [clickCoords, setClickCoords] = useState(null);
+  const [starPosition, setStarPosition] = useState({x: 0, y: 0})
 
-  const addStar = (size, color, brightness, x, y) => {
-    const newStar = {
-      x: x,
-      y: y,
-      size: size,
-      color: color,
-      brightness: brightness,
-    };
-    socket.emit('star-add', newStar)
-  };
+  function resetAppState() {
+    setAppState("view")
+  }
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -49,32 +37,21 @@ function App() {
   }, []);
 
   const handleClick = (event) => {
-    const x = event.clientX; // X position of click in pixels
-    const y = event.clientY; // Y position of click in pixels
+    if (appState === "view") {
+      const x = event.clientX; // X position of click in pixels
+      const y = event.clientY; // Y position of click in pixels
 
-    // Get the viewport dimensions
-    const viewportWidth = window.innerWidth;
-    const viewportHeight = window.innerHeight;
+      // Get the viewport dimensions
+      const viewportWidth = window.innerWidth;
+      const viewportHeight = window.innerHeight;
 
-    const xInVW = (x / viewportWidth) * 100;
-    const yInVH = (y / viewportHeight) * 100;
+      const xInVW = (x / viewportWidth) * 100;
+      const yInVH = (y / viewportHeight) * 100;
 
-    if (appState === "clickNotAllowed") {
-    } else {
-      setClickCoords({ x: xInVW, y: yInVH });
-      setAppState("clickNotAllowed");
-      setSetStar(true);
+      setStarPosition({x: xInVW, y: yInVH})
+      setAppState("star")
     }
   };
-
-  useEffect(() => {
-    if (submit && clickCoords) {
-      addStar(size, color, brightness, clickCoords.x, clickCoords.y);
-      setSetStar(false); // Hide modal
-      setSubmit(false); // Reset submit state
-      setAppState("clickAllow");
-    }
-  }, [submit]);
 
   useEffect(() => {
     socket.on("stars-update", (stars) => {
@@ -123,16 +100,11 @@ function App() {
         />
       </div>
 
-      {setStar && (
+      {appState === "star" && (
         <CustomizeStar
-          size={size}
-          setSize={setSize}
-          brightness={brightness}
-          setBrightness={setBrightness}
-          color={color}
-          setColor={setColor}
-          submit={submit}
-          setSubmit={setSubmit}
+          starX={starPosition.x}
+          starY={starPosition.y}
+          onAddStar={resetAppState}
         />
       )}
       {showWelcome && <Welcome />}

@@ -1,16 +1,24 @@
 import "./CustomizeStar.css";
 import { useState } from "react";
+import { socket } from "../SocketFactory";
 
-function CustomizeStar({
-  size,
-  setSize,
-  color,
-  setColor,
-  brightness,
-  setBrightness,
-  submit,
-  setSubmit,
-}) {
+function CustomizeStar({ starX, starY, onAddStar }) {
+  const [size, setSize] = useState("medium");
+  const [color, setColor] = useState("#ffffff");
+  const [brightness, setBrightness] = useState("medium");
+
+  function addStar() {
+    const star = {
+      x: starX,
+      y: starY,
+      size: size,
+      color: color,
+      brightness: brightness,
+    }
+    socket.emit('star-add', star)
+    onAddStar()
+  }
+
   return (
     <>
       <div className="container">
@@ -47,7 +55,7 @@ function CustomizeStar({
               </select>
             </div>
           </div>
-          <button className="submit" onClick={() => setSubmit(true)}>
+          <button className="submit" onClick={() => addStar()}>
             Submit
           </button>
         </div>
