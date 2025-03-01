@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { act, useEffect, useState } from "react";
 import { socket } from "./SocketFactory";
 import nightSky from "./assets/night_sky.jpg";
 import corn from "./assets/corn.jpeg";
@@ -24,11 +24,29 @@ function App() {
   const [appState, setAppState] = useState("view");
   const [showWelcome, setShowWelcome] = useState(true);
   const [starPosition, setStarPosition] = useState({ x: 0, y: 0 });
+  const [superNova, setSuperNova] = useState(null);
+  const [ifNova, setIfNova] = useState(false);
+
+  let actualTimeRemaining = 0;
   const [timeRemaining, setTimeRemaining] = useState(0);
   const [nextTimeout, setNextTimeout] = useState(0);
 
   function resetAppState() {
-    setAppState("view");
+    setAppState("timeout");
+    actualTimeRemaining = nextTimeout;
+    setTimeRemaining(actualTimeRemaining);
+    setTimeout(decreaseTimer, 1000);
+  }
+  function decreaseTimer() {
+    if (actualTimeRemaining > 2000) {
+      actualTimeRemaining -= 1000;
+      setTimeRemaining(actualTimeRemaining);
+      setTimeout(decreaseTimer, 1000);
+    } else {
+      setAppState("view");
+      actualTimeRemaining = 0;
+      setTimeRemaining(actualTimeRemaining);
+    }
   }
 
   useEffect(() => {
@@ -69,7 +87,8 @@ function App() {
       setFloatingObjects([...floatingObjects, shootingStar]);
     });
     socket.on("supernova", (supernova) => {
-      // hmmm
+      setSuperNova(supernova);
+      setIfNova(true);
     });
     socket.on("ufo", (ufo) => {
       setFloatingObjects([...floatingObjects, ufo]);
@@ -118,6 +137,16 @@ function App() {
       <Timer timeLeft={timeRemaining} />
 
       <RenderObjects objects={floatingObjects} />
+      {ifNova && (
+        <Star
+          size={superNova.size}
+          color={superNova.color}
+          brightness={superNova.brightness}
+          x={superNova.x}
+          y={superNova.y}
+        ></Star>
+      )}
+
       <RenderStars stars={stars} />
     </div>
   );

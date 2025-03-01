@@ -151,6 +151,7 @@ tick() // starts ticking every TICK_RATE milliseconds
 // Handles client connection and listens for messages
 io.on('connection', socket => {
     console.log(`Connection with ID ${socket.id}`)
+    socket.emit('timeout-update', getTimeout())
 
     // listening for messages...
     socket.on('star-add', (star) => {
