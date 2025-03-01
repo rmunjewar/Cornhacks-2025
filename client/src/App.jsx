@@ -93,7 +93,7 @@ function App() {
   );
 }
 
-function RenderObjects(objects) {
+function RenderObjects({ objects }) {
   return (
     <div>
       {objects.map((object, index) => (
@@ -103,7 +103,7 @@ function RenderObjects(objects) {
   );
 }
 
-function RenderStars(stars) {
+function RenderStars({ stars }) {
   return (
     <div>
       {stars.map((star, index) => (
@@ -114,7 +114,7 @@ function RenderStars(stars) {
           brightness={star.brightness}
           x={star.x}
           y={star.y}
-        ></Star>
+        />
       ))}
     </div>
   );
