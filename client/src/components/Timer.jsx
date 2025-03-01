@@ -1,7 +1,7 @@
 import "./Timer.css";
 
 function Timer({ timeLeft }) {
-  let seconds = timeLeft / 1000;
+  let seconds = Math.floor(timeLeft / 1000);
 
   return (
     <div className="timer">
