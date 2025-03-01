@@ -1,43 +1,54 @@
 .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    height: 100vh;
-    align-items: center;
-    padding: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100vh;
+  align-items: center;
+  margin-top: 3vw;
 }
 
 .popupBox {
-    display: flex;
-    flex-direction: column;
-    background: rgba(255, 255, 255, 0.25);
-    padding: 2vh;
-    width: 45vw;
-    border-radius: 2vh;
-    text-align: center;
-    color: rgb(251, 251, 251);
-    /* margin-top: auto; */
-    flex-grow: 0;
-    align-items: center;
-  }
+  width: 43vw;
+  height: 10vw;
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.25);
+  padding: 2vw;
+  border-radius: 2vh;
+  text-align: center;
+  color: rgb(251, 251, 251);
+  /* margin-top: auto; */
+  justify-content: center;
+  align-items: center;
+  flex-grow: 0;
+  align-items: center;
+  z-index: 100;
+}
 
 .heading {
-    font-size: 5vh;
-    color: rgb(251, 251, 251);
-    text-shadow: 0 0 0.07vw #03030385, 0 0 0.1vw #08080884, 0 0 0.2vw #e6ede6,
+  font-size: 2.5vw;
+  color: rgb(251, 251, 251);
+  text-shadow: 0 0 0.07vw #03030385, 0 0 0.1vw #08080884, 0 0 0.2vw #e6ede6,
     0 0 0.3vw #e6ede6, 0 0 0.3vw #e6ede6, 0 0 0.4vw #e6ede6, 0 0 0.6vw #e6ede6;
+  padding: 0;
 }
 
 .dropDownContainer {
-    display: flex;
-    flex-direction: row;
-    color: rgb(251, 251, 251);
-    margin: .2vw;
-    gap: 2vw;
-    padding: 1vw;
-    font-size: 2vh;
+  display: flex;
+  flex-direction: row;
+  color: rgb(251, 251, 251);
+  margin: 0.2vw;
+  gap: 2vw;
+  padding: 1vw;
+  font-size: 1vw;
 }
 
+.dropDownContainer select {
+  font-size: 1vw;
+  border-radius: 1vw;
+  width: 9vw;
+  height: 2vw;
+  padding: 0.5vh;
 .dropDownContainer select{
     font-size: 2vh;
     width: auto;
@@ -48,13 +59,17 @@
     font-style: normal;
 }
 
-.submit{
-    font-size: 2vh;
-    width: auto;
-    height: auto;
-    padding: 1.5vh;
-    color: rgb(251, 251, 251);
-    box-shadow: 0 0 0.07vw #03030385, 0 0 0.1vw #08080884, 0 0 0.2vw #e6ede6,
+.submit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2vh;
+  width: 5vw;
+  height: 2vw;
+  /* padding: 1.5vh; */
+  margin-top: 1vw;
+  color: rgb(251, 251, 251);
+  box-shadow: 0 0 0.07vw #03030385, 0 0 0.1vw #08080884, 0 0 0.2vw #e6ede6,
     0 0 0.3vw #e6ede6, 0 0 0.3vw #e6ede6, 0 0 0.4vw #e6ede6, 0 0 0.6vw #e6ede6;
-    background-color: rgba(251, 251, 251, 0.4);
+  background-color: rgba(251, 251, 251, 0.4);
 }
