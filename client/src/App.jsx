@@ -11,6 +11,7 @@ import Star from "./components/Star";
 import Object from "./components/Object";
 import forestSkyline from "./assets/forest-skyline.png";
 import CustomizeStar from "./components/CustomizeStar";
+import Timer from "./components/Timer";
 import "./App.css";
 
 import { exampleStars } from "./ExampleStars";
@@ -22,10 +23,11 @@ function App() {
   const [floatingObjects, setFloatingObjects] = useState([]);
   const [appState, setAppState] = useState("view");
   const [showWelcome, setShowWelcome] = useState(true);
-  const [starPosition, setStarPosition] = useState({x: 0, y: 0})
+  const [starPosition, setStarPosition] = useState({ x: 0, y: 0 });
+  const [timeRemaining, setTimeRemaining] = useState(0);
 
   function resetAppState() {
-    setAppState("view")
+    setAppState("view");
   }
 
   useEffect(() => {
@@ -48,8 +50,8 @@ function App() {
       const xInVW = (x / viewportWidth) * 100;
       const yInVH = (y / viewportHeight) * 100;
 
-      setStarPosition({x: xInVW, y: yInVH})
-      setAppState("star")
+      setStarPosition({ x: xInVW, y: yInVH });
+      setAppState("star");
     }
   };
 
@@ -111,6 +113,7 @@ function App() {
         />
       )}
       {showWelcome && <Welcome />}
+      <Timer timeLeft={timeRemaining} />
 
       <RenderObjects objects={floatingObjects} />
       <RenderStars stars={stars} />
