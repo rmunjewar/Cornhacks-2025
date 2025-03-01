@@ -12,9 +12,9 @@ function Star({ size, color, brightness, x, y }) {
     sizeClass = "largeSize";
   }
 
-  if (brightness === "small") {
+  if (brightness === "dim") {
     brightnessClass = "smallBright";
-  } else if (brightness === "large") {
+  } else if (brightness === "bright") {
     brightnessClass = "largeBright";
   }
 

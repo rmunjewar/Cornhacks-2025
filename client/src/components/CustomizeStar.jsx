@@ -31,7 +31,7 @@ function CustomizeStar({ starX, starY, onAddStar }) {
                 <option value="#ffffff">Lunar Frost</option>
                 <option value="#FFCB6C">Astral Gold</option>
                 <option value="#FFACC6">Nebula Pink</option>
-                <option value="#B764FF">Purple Cosmos</option>
+                <option value="#9880ff">Purple Cosmos</option>
                 <option value="#A4FFFF">Celestial Cyan</option>
               </select>
             </div>
