@@ -24,7 +24,7 @@ const TICK_RATE = 1000;
 const ROTATE = {
     x: 50,
     y: 100,
-    theta: 0.0001
+    theta: -0.0001
 }
 
 const SHOOTING_STAR_CHANCE = 0
