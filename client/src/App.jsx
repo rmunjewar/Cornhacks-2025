@@ -27,13 +27,13 @@ function App() {
 
   useEffect(() => {
     const timeout = setTimeout(() => {
-      setShowWelcome(false); 
-    }, 5000); 
+      setShowWelcome(false);
+    }, 5000);
 
     return () => clearTimeout(timeout);
   }, []);
 
-  let setStar = false;
+  let setStar = true;
 
   if (appState === "setStar") {
     setStar = true;
@@ -68,6 +68,7 @@ function App() {
         minHeight: "100vh",
         width: "100vw",
         overflow: "hidden",
+        zIndex: 0,
       }}
       onClick={handleClick}
     >
@@ -85,7 +86,7 @@ function App() {
           setColor={setColor}
         />
       )}
-      {showWelcome &&  <Welcome />}
+      {showWelcome && <Welcome />}
 
       <RenderObjects objects={floatingObjects} />
       <RenderStars stars={stars} />
