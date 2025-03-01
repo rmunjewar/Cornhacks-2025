@@ -1,14 +1,16 @@
 import { useState } from "react"
 import { socket } from "./SocketFactory"
 import nightSky from "./assets/night_sky.jpg";
-import nightSky from './assets/corn.jpg';
-import nightSky from './assets/cow.jpg';
-import nightSky from './assets/ufo.jpg';
-import nightSky from './assets/astronaut.jpg';
-import nightSky from './assets/moon.jpg';
+import corn from './assets/corn.jpg';
+import cow from './assets/cow.jpg';
+import ufo from './assets/ufo.jpg';
+import astronaut from './assets/astronaut.jpg';
+import moon from './assets/moon.jpg';
 import Welcome from "./components/Welcome";
 import Star from "./components/Star";
 import './App.css'
+
+const floatingObjects = [corn, cow, ufo, astronaut, moon]
 
 function App() {
 
