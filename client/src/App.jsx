@@ -26,7 +26,7 @@ function App() {
   const [color, setColor] = useState("#ffffff");
   const [brightness, setBrightness] = useState("medium");
   const [setStar, setSetStar] = useState(false);
-
+  const [submit, setSubmit] = useState(false);
 
   const addStar = (size, color, brightness, x, y) => {
     const newStar = {
@@ -99,13 +99,20 @@ function App() {
       }}
       onClick={handleClick}
     >
-      <div className="forest-skyline" style={{
-        width: "105vw",
-        left: "-2.5vw",
-      }}>
-        <img src={forestSkyline} alt="forest skyline" style={{
+      <div
+        className="forest-skyline"
+        style={{
           width: "105vw",
-        }}/>
+          left: "-2.5vw",
+        }}
+      >
+        <img
+          src={forestSkyline}
+          alt="forest skyline"
+          style={{
+            width: "105vw",
+          }}
+        />
       </div>
 
       {setStar && (
@@ -116,6 +123,8 @@ function App() {
           setBrightness={setBrightness}
           color={color}
           setColor={setColor}
+          submit={submit}
+          setSubmit={setSubmit}
         />
       )}
       {showWelcome && <Welcome />}
