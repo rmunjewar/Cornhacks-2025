@@ -18,9 +18,9 @@ import { exampleStars } from "./ExampleStars";
 function App() {
   const [stars, setStars] = useState(exampleStars);
   const [floatingObjects, setFloatingObjects] = useState([]);
-  const [componentPosition, setComponentPosition] = useState(null);
   const [appState, setAppState] = useState("welcome");
   const [showWelcome, setShowWelcome] = useState(true);
+
   const [size, setSize] = useState("medium");
   const [color, setColor] = useState("#ffffff");
   const [brightness, setBrightness] = useState("medium");
@@ -45,9 +45,6 @@ function App() {
     const y = event.clientY; // Y position of click
 
     setAppState("setStar");
-
-    // Set the position of the component to render
-    setComponentPosition({ x, y });
   };
 
   useEffect(() => {
@@ -90,33 +87,34 @@ function App() {
       )}
       {showWelcome &&  <Welcome />}
 
-      <renderObjects objects={floatingObjects} />
-      <renderStars stars={stars} />
+      <RenderObjects objects={floatingObjects} />
+      <RenderStars stars={stars} />
     </div>
   );
 }
 
-function renderObjects(objects) {
+function RenderObjects({ objects }) {
   return (
     <div>
       {objects.map((object, index) => (
-        <Object image={object.image} />
+        <Object key={index} image={object.image} x={object.x} y={object.y} />
       ))}
     </div>
   );
 }
 
-function renderStars(stars) {
+function RenderStars({ stars }) {
   return (
     <div>
       {stars.map((star, index) => (
         <Star
+          key={index}
           size={star.size}
           color={star.color}
           brightness={star.brightness}
           x={star.x}
           y={star.y}
-        ></Star>
+        />
       ))}
     </div>
   );
