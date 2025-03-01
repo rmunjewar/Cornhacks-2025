@@ -20,7 +20,7 @@ const objectImages = [corn, cow, ufo, astronaut, moon];
 function App() {
   const [stars, setStars] = useState([]);
   const [floatingObjects, setFloatingObjects] = useState([]);
-  // const [appState, setAppState] = useState("welcome");
+  const [appState, setAppState] = useState("clickAllow");
   const [showWelcome, setShowWelcome] = useState(true);
   const [size, setSize] = useState("medium");
   const [color, setColor] = useState("#ffffff");
@@ -48,7 +48,6 @@ function App() {
     return () => clearTimeout(timeout);
   }, []);
 
-  // Function to handle the click event
   const handleClick = (event) => {
     const x = event.clientX; // X position of click in pixels
     const y = event.clientY; // Y position of click in pixels
@@ -57,21 +56,23 @@ function App() {
     const viewportWidth = window.innerWidth;
     const viewportHeight = window.innerHeight;
 
-    // Convert the pixel values to vw and vh
-    // Convert to vw and vh
     const xInVW = (x / viewportWidth) * 100;
     const yInVH = (y / viewportHeight) * 100;
 
-    setClickCoords({ x: xInVW, y: yInVH }); // Store coordinates
-    setSetStar(true); // Open customization modal
+    if (appState === "clickNotAllowed") {
+    } else {
+      setClickCoords({ x: xInVW, y: yInVH });
+      setAppState("clickNotAllowed");
+      setSetStar(true);
+    }
   };
 
-  // When the user submits, add the star at the stored location
   useEffect(() => {
     if (submit && clickCoords) {
       addStar(size, color, brightness, clickCoords.x, clickCoords.y);
       setSetStar(false); // Hide modal
       setSubmit(false); // Reset submit state
+      setAppState("clickAllow");
     }
   }, [submit]);
 
@@ -80,15 +81,15 @@ function App() {
       setStars(JSON.parse(stars));
     });
 
-    socket.on('shooting-star', (shootingStar) => {
-      setFloatingObjects([...floatingObjects, shootingStar])
-    })
-    socket.on('supernova', (supernova) => {
+    socket.on("shooting-star", (shootingStar) => {
+      setFloatingObjects([...floatingObjects, shootingStar]);
+    });
+    socket.on("supernova", (supernova) => {
       // hmmm
-    })
-    socket.on('ufo', (ufo) => {
-      setFloatingObjects([...floatingObjects, ufo])
-    })
+    });
+    socket.on("ufo", (ufo) => {
+      setFloatingObjects([...floatingObjects, ufo]);
+    });
   }, []);
 
   return (
