@@ -21,7 +21,9 @@ function App() {
   const [stars, setStars] = useState(exampleStars);
   const [floatingObjects, setFloatingObjects] = useState([]);
   const [componentPosition, setComponentPosition] = useState(null);
-  const [appState, setAppState] = useState("view");
+  const [appState, setAppState] = useState("welcome");
+  const [showWelcome, setShowWelcome] = useState(true);
+
 
   const [size, setSize] = useState('medium');
   const [color, setColor] = useState('#ffffff');
@@ -79,6 +81,7 @@ function App() {
       <div className="forest-skyline">
         <img src={forestSkyline} alt="forest skyline" />
       </div>
+<<<<<<< Updated upstream
 
       <CustomizeStar
         size={size}
@@ -92,6 +95,9 @@ function App() {
       {isVisible && <CustomizeStar />}
       {showWelcome && <Welcome />}
 
+=======
+      {showWelcome && <Welcome />}
+>>>>>>> Stashed changes
       <renderObjects objects={floatingObjects} />
       <renderStars stars={stars} />
     </div>
