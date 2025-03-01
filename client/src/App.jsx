@@ -23,12 +23,11 @@ function App() {
   const [componentPosition, setComponentPosition] = useState(null);
   const [appState, setAppState] = useState("view");
 
-  const [size, setSize] = useState('medium');
-  const [color, setColor] = useState('#ffffff');
-  const [brightness, setBrightness] = useState('medium');
+  const [size, setSize] = useState("medium");
+  const [color, setColor] = useState("#ffffff");
+  const [brightness, setBrightness] = useState("medium");
 
   let setStar = false;
-
 
   if (appState === "setStar") {
     setStar = true;
@@ -73,16 +72,16 @@ function App() {
         <img src={forestSkyline} alt="forest skyline" />
       </div>
 
-      <CustomizeStar
-        size={size}
-        setSize={setSize}
-        brightness={brightness}
-        setBrightness={setBrightness}
-        color={color}
-        setColor={setColor}
-      />
-
-      {isVisible && <CustomizeStar />}
+      {setStar && (
+        <CustomizeStar
+          size={size}
+          setSize={setSize}
+          brightness={brightness}
+          setBrightness={setBrightness}
+          color={color}
+          setColor={setColor}
+        />
+      )}
 
       <renderObjects objects={floatingObjects} />
       <renderStars stars={stars} />
