@@ -22,8 +22,8 @@ const stars = []
 
 const TICK_RATE = 1000;
 const ROTATE = {
-    x: 1000,
-    y: 1000,
+    x: 50,
+    y: 200,
     theta: 0.1
 }
 
@@ -72,8 +72,8 @@ function triggerRandomEvents() {
 
 function triggerShootingStar() {
     const shootingStar = {
-        x: Math.random() * 1920,
-        y: Math.random() * 1080,
+        x: Math.random() * 100,
+        y: Math.random() * 100,
         direction: Math.random() * 2 * Math.PI,
         speed: Math.random() * 10,
         duration: Math.random * 900 + 100
@@ -93,28 +93,28 @@ function triggerUFO() {
     switch(startingSide) {
         case "top":
             ufo = {
-                x: Math.random() * 1920,
-                y: -100,
+                x: Math.random() * 100,
+                y: -10,
                 direction: Math.random() * Math.PI + Math.PI,
             }
         case "bottom":
             ufo = {
-                x: Math.random * 1920,
-                y: 1180,
+                x: Math.random * 100,
+                y: 110,
                 direction: Math.random() * Math.PI,
             }
             break
         case "left":
             ufo = {
-                x: -100,
-                y: Math.random() * 1080,
+                x: -10,
+                y: Math.random() * 100,
                 direction: Math.random() * Math.PI + Math.PI * 3/2,
             }
             break
         case "right":
             ufo = {
-                x: 2020,
-                y: Math.random() * 1080,
+                x: 110,
+                y: Math.random() * 100,
                 direction: Math.random() * Math.PI + Math.PI / 2,
             }
             break

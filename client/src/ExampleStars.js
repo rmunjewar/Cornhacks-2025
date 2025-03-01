@@ -11,22 +11,22 @@
 
 export const exampleStars = [
   {
-    x: "6vw",
-    y: "6vw",
+    x: 6,
+    y: 6,
     size: "small",
     color: "#ffffff",
     brightness: "medium",
   },
   {
-    x: 1000,
-    y: 500,
+    x: 50,
+    y: 25,
     size: "large",
     color: "#ffffaa",
     brightness: "dim",
   },
   {
-    x: 750,
-    y: 750,
+    x: 35,
+    y: 35,
     size: "medium",
     color: "#aaaaff",
     brightness: "bright",
