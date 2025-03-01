@@ -93,13 +93,20 @@ function App() {
       }}
       onClick={handleClick}
     >
-      <div className="forest-skyline" style={{
-        width: "105vw",
-        left: "-2.5vw",
-      }}>
-        <img src={forestSkyline} alt="forest skyline" style={{
+      <div
+        className="forest-skyline"
+        style={{
           width: "105vw",
-        }}/>
+          left: "-2.5vw",
+        }}
+      >
+        <img
+          src={forestSkyline}
+          alt="forest skyline"
+          style={{
+            width: "105vw",
+          }}
+        />
       </div>
 
       {setStar && (
