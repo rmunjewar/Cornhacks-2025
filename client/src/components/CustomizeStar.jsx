@@ -15,9 +15,9 @@ function CustomizeStar({ starX, starY, onAddStar }) {
       size: size,
       color: color,
       brightness: brightness,
-    }
-    socket.emit('star-add', star)
-    onAddStar()
+    };
+    socket.emit("star-add", star);
+    onAddStar();
   }
 
   return (
@@ -28,7 +28,7 @@ function CustomizeStar({ starX, starY, onAddStar }) {
           <div className="heading">Customize your star!</div>
           <div className="dropDownContainer">
             <div>
-              Color:
+              Color:&nbsp;&nbsp;
               <select value={color} onChange={(e) => setColor(e.target.value)}>
                 <option value="#ffffff">Lunar Frost</option>
                 <option value="#FFCB6C">Astral Gold</option>
@@ -38,7 +38,7 @@ function CustomizeStar({ starX, starY, onAddStar }) {
               </select>
             </div>
             <div>
-              Size:
+              Size:&nbsp;&nbsp;
               <select value={size} onChange={(e) => setSize(e.target.value)}>
                 <option value="small">Small</option>
                 <option value="medium">Medium</option>
@@ -46,7 +46,7 @@ function CustomizeStar({ starX, starY, onAddStar }) {
               </select>
             </div>
             <div>
-              Brightness:
+              Brightness:&nbsp;&nbsp;
               <select
                 value={brightness}
                 onChange={(e) => setBrightness(e.target.value)}
