@@ -12,6 +12,17 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  animation: showAndHide 8s forwards;
+}
+
+@keyframes showAndHide {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
 }
 
 .box h2 {
