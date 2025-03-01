@@ -27,7 +27,7 @@ function App() {
   const [color, setColor] = useState("#ffffff");
   const [brightness, setBrightness] = useState("medium");
 
-  let setStar = false;
+  let setStar = true;
   const [showWelcome, setShowWelcome] = useState(true);
 
   if (appState === "setStar") {

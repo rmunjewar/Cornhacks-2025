@@ -23,7 +23,7 @@ function Star({ size, color, brightness, x, y }) {
     <div
       className={`circle ${sizeClass} ${brightnessClass}`}
       style={{
-        backgroundColor: color,
+        "--backgroundColor": color,
         "--glow-color": color,
         "--x": { x },
         "--y": { y },
