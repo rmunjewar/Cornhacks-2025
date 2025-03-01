@@ -1,6 +1,6 @@
 import express, { Router } from 'express'
 import { Server } from 'socket.io'
-
+import { exampleStars } from '../client/src/ExampleStars.js'
 
 // Setting up the server
 const PORT = process.env.PORT || 8080
@@ -18,18 +18,18 @@ const io = new Server(expressServer, {
 })
 
 // More back-end should go here
-const stars = []
+const stars = exampleStars
 
 const TICK_RATE = 1000;
 const ROTATE = {
     x: 50,
-    y: 200,
-    theta: 0.1
+    y: 100,
+    theta: 0.0001
 }
 
-const SHOOTING_STAR_CHANCE = 0.02
-const SUPERNOVA_CHANCE = 0.001
-const UFO_CHANCE = 0.05
+const SHOOTING_STAR_CHANCE = 0
+const SUPERNOVA_CHANCE = 0
+const UFO_CHANCE = 0
 
 // Rotates all stars about the point ROTATE
 function rotateStars() {
@@ -41,8 +41,8 @@ function rotateStars() {
         star.y -= ROTATE.y
 
         // rotate point
-        rotatedX = star.x * cosTheta - star.y * sinTheta
-        rotatedY = star.x * sinTheta + star.y * cosTheta
+        const rotatedX = star.x * cosTheta - star.y * sinTheta
+        const rotatedY = star.x * sinTheta + star.y * cosTheta
 
         // translate point back
         star.x = rotatedX + ROTATE.x
