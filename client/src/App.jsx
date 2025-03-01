@@ -18,13 +18,14 @@ import { exampleStars } from "./ExampleStars";
 const floatingObjects = [corn, cow, ufo, astronaut, moon];
 
 function App() {
-
   const [stars, setStars] = useState(exampleStars);
   const [floatingObjects, setFloatingObjects] = useState([]);
   const [componentPosition, setComponentPosition] = useState(null);
   const [appState, setAppState] = useState("view");
+  let setStar = false;
 
   if (appState === "setStar") {
+    setStar = true;
   }
 
   // Function to handle the click event
@@ -65,6 +66,7 @@ function App() {
       <div className="forest-skyline">
         <img src={forestSkyline} alt="forest skyline" />
       </div>
+      {isVisible && <CustomizeStar />}
       <renderObjects objects={floatingObjects} />
       <renderStars stars={stars} />
     </div>
