@@ -9,10 +9,9 @@ function CustomizeStar({
   brightness,
   setBrightness,
   submit,
-  setSubmit
+  setSubmit,
 }) {
   return (
-
     <>
       <div className="container">
         <div className="popupBox">
@@ -48,7 +47,7 @@ function CustomizeStar({
               </select>
             </div>
           </div>
-          <button className="submit" onClick={setSubmit('true')}>
+          <button className="submit" onClick={() => setSubmit(true)}>
             Submit
           </button>
         </div>

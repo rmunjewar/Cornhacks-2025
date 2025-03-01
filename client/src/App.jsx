@@ -27,6 +27,7 @@ function App() {
   const [brightness, setBrightness] = useState("medium");
   const [setStar, setSetStar] = useState(false);
   const [submit, setSubmit] = useState(false);
+  const [clickCoords, setClickCoords] = useState(null);
 
   const addStar = (size, color, brightness, x, y) => {
     const newStar = {
@@ -57,16 +58,22 @@ function App() {
     const viewportHeight = window.innerHeight;
 
     // Convert the pixel values to vw and vh
+    // Convert to vw and vh
     const xInVW = (x / viewportWidth) * 100;
     const yInVH = (y / viewportHeight) * 100;
 
-    setSetStar(false);
-
-    if (submit) {
-      addStar(size, color, brightness, xInVW, yInVH);
-      setSetStar(false);
-    }
+    setClickCoords({ x: xInVW, y: yInVH }); // Store coordinates
+    setSetStar(true); // Open customization modal
   };
+
+  // When the user submits, add the star at the stored location
+  useEffect(() => {
+    if (submit && clickCoords) {
+      addStar(size, color, brightness, clickCoords.x, clickCoords.y);
+      setSetStar(false); // Hide modal
+      setSubmit(false); // Reset submit state
+    }
+  }, [submit]);
 
   useEffect(() => {
     socket.on("stars-update", (stars) => {
