@@ -5,7 +5,7 @@
   position: absolute;
   bottom: 1.5vw;
   left: 1.5vw;
-  width: 15vw;
+  width: auto;
   height: 2vw;
   box-shadow: 0 0 0.4vw #646464, 0 0 0.4vw #646464, 0 0 0.4vw #646464;
   background-color: transparent;
@@ -13,4 +13,9 @@
   font-size: 1vw;
   color: white;
   border-radius: 1vw;
+}
+
+.timer p {
+  margin-left: 1vw;
+  margin-right: 1vw;
 }

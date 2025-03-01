@@ -25,6 +25,7 @@ function App() {
   const [showWelcome, setShowWelcome] = useState(true);
   const [starPosition, setStarPosition] = useState({ x: 0, y: 0 });
   const [timeRemaining, setTimeRemaining] = useState(0);
+  const [nextTimeout, setNextTimeout] = useState(0);
 
   function resetAppState() {
     setAppState("view");
@@ -60,8 +61,8 @@ function App() {
       setStars(JSON.parse(stars));
     });
     socket.on("timeout-update", (timeout) => {
-      
-    })
+      setNextTimeout(timeout);
+    });
 
     socket.on("shooting-star", (shootingStar) => {
       setFloatingObjects([...floatingObjects, shootingStar]);
