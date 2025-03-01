@@ -30,9 +30,9 @@ function CustomizeStar(size, setSize, color, setColor, brightness, setBrightness
                         <div>
                             Brightness:
                             <select value={brightness} onChange={(e) => setBrightness(e.target.value)}>
-                                <option value="small">Small</option>
+                                <option value="dim">Dim</option>
                                 <option value="medium">Medium</option>
-                                <option value="large">Large</option>
+                                <option value="bright">Bright</option>
                             </select>
                         </div>
                     </div >

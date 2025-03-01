@@ -25,14 +25,12 @@ function App() {
   const [showWelcome, setShowWelcome] = useState(true);
 
 
-  const [size, setSize] = useState('medium');
-  const [color, setColor] = useState('#ffffff');
-  const [brightness, setBrightness] = useState('medium');
+  const [size, setSize] = useState("medium");
+  const [color, setColor] = useState("#ffffff");
+  const [brightness, setBrightness] = useState("medium");
 
   let setStar = false;
   const [showWelcome, setShowWelcome] = useState(true);
-
-
 
   if (appState === "setStar") {
     setStar = true;
@@ -83,21 +81,18 @@ function App() {
       </div>
 <<<<<<< Updated upstream
 
-      <CustomizeStar
-        size={size}
-        setSize={setSize}
-        brightness={brightness}
-        setBrightness={setBrightness}
-        color={color}
-        setColor={setColor}
-      />
-
-      {isVisible && <CustomizeStar />}
+      {setStar && (
+        <CustomizeStar
+          size={size}
+          setSize={setSize}
+          brightness={brightness}
+          setBrightness={setBrightness}
+          color={color}
+          setColor={setColor}
+        />
+      )}
       {showWelcome && <Welcome />}
 
-=======
-      {showWelcome && <Welcome />}
->>>>>>> Stashed changes
       <renderObjects objects={floatingObjects} />
       <renderStars stars={stars} />
     </div>
