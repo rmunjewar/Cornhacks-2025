@@ -25,6 +25,7 @@ function App() {
   const [showWelcome, setShowWelcome] = useState(true);
   const [starPosition, setStarPosition] = useState({ x: 0, y: 0 });
   const [superNova, setSuperNova] = useState(null);
+  const [ifNova, setIfNova] = useState(false);
 
   let actualTimeRemaining = 0;
   const [timeRemaining, setTimeRemaining] = useState(0);
@@ -87,6 +88,7 @@ function App() {
     });
     socket.on("supernova", (supernova) => {
       setSuperNova(supernova);
+      setIfNova(true);
     });
     socket.on("ufo", (ufo) => {
       setFloatingObjects([...floatingObjects, ufo]);
@@ -135,13 +137,16 @@ function App() {
       <Timer timeLeft={timeRemaining} />
 
       <RenderObjects objects={floatingObjects} />
-      <Star
-        size={superNova.size}
-        color={superNova.color}
-        brightness={superNova.brightness}
-        x={superNova.x}
-        y={superNova.y}
-      ></Star>
+      {ifNova && (
+        <Star
+          size={superNova.size}
+          color={superNova.color}
+          brightness={superNova.brightness}
+          x={superNova.x}
+          y={superNova.y}
+        ></Star>
+      )}
+
       <RenderStars stars={stars} />
     </div>
   );
