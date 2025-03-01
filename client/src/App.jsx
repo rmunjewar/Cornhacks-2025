@@ -15,19 +15,23 @@ import "./App.css";
 
 import { exampleStars } from "./ExampleStars";
 
-const floatingObjects = [corn, cow, ufo, astronaut, moon];
-
 function App() {
   const [stars, setStars] = useState(exampleStars);
   const [floatingObjects, setFloatingObjects] = useState([]);
   const [componentPosition, setComponentPosition] = useState(null);
   const [appState, setAppState] = useState("welcome");
   const [showWelcome, setShowWelcome] = useState(true);
-
-
   const [size, setSize] = useState("medium");
   const [color, setColor] = useState("#ffffff");
   const [brightness, setBrightness] = useState("medium");
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setShowWelcome(false); 
+    }, 5000); 
+
+    return () => clearTimeout(timeout);
+  }, []);
 
   let setStar = false;
 
@@ -37,11 +41,6 @@ function App() {
 
   // Function to handle the click event
   const handleClick = (event) => {
-    if (showWelcome) {
-      setShowWelcome(false);
-      setAppState("view");
-      return;
-    }
     const x = event.clientX; // X position of click
     const y = event.clientY; // Y position of click
 
@@ -89,7 +88,7 @@ function App() {
           setColor={setColor}
         />
       )}
-      {showWelcome && <Welcome />}
+      {showWelcome &&  <Welcome />}
 
       <renderObjects objects={floatingObjects} />
       <renderStars stars={stars} />
