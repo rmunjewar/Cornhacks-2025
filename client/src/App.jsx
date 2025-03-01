@@ -73,9 +73,15 @@ function App() {
       setStars(JSON.parse(stars));
     });
 
-    return () => {
-      socket.off("stars-update");
-    };
+    socket.on('shooting-star', (shootingStar) => {
+      setFloatingObjects([...floatingObjects, shootingStar])
+    })
+    socket.on('supernova', (supernova) => {
+      // hmmm
+    })
+    socket.on('ufo', (ufo) => {
+      setFloatingObjects([...floatingObjects, ufo])
+    })
   }, []);
 
   return (
