@@ -24,6 +24,7 @@
   padding: 0;
   margin: 0;
   font-weight: normal;
+  font-size:xx-large;
 }
 
 .box p:last-child:after {
@@ -42,4 +43,10 @@
     opacity: 0;
     visibility: hidden;
   }
+}
+
+.box h2 {
+  padding: 0;
+  margin: 0;
+  font-weight: normal;
 }
