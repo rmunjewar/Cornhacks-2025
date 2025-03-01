@@ -14,6 +14,14 @@ function App() {
 
   const [floatingObjects, setFloatingObjects] = useState([]);
   
+  const [stars, setStars] = useState([])
+
+  useEffect(() => {
+    socket.on('stars-update', (stars)) {
+      setStars(JSON.parse(stars))
+    }
+  })
+  
   return (
 
     <div 
