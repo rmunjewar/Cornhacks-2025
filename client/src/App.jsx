@@ -90,13 +90,13 @@ function App() {
       )}
       {showWelcome && <Welcome />}
 
-      <renderObjects objects={floatingObjects} />
-      <renderStars stars={stars} />
+      <RenderObjects objects={floatingObjects} />
+      <RenderStars stars={stars} />
     </div>
   );
 }
 
-function renderObjects(objects) {
+function RenderObjects(objects) {
   return (
     <div>
       {objects.map((object, index) => (
@@ -106,7 +106,7 @@ function renderObjects(objects) {
   );
 }
 
-function renderStars(stars) {
+function RenderStars(stars) {
   return (
     <div>
       {stars.map((star, index) => (
