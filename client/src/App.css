@@ -46,8 +46,6 @@ html, body {
   }
 }
 
-<<<<<<< Updated upstream
-=======
 .forest-skyline {
   position: absolute;
   bottom: 0;
@@ -65,7 +63,6 @@ html, body {
   display: block;
 }
 
->>>>>>> Stashed changes
 @media (prefers-reduced-motion: no-preference) {
   a:nth-of-type(2) .logo {
     animation: logo-spin infinite 20s linear;
