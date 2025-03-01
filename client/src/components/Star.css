@@ -1,0 +1,34 @@
+.circle {
+  border-radius: 50%;
+  --glow-color: #fff;
+}
+
+.smallSize {
+  width: 1vw;
+  height: 1vw;
+}
+
+.mediumSize {
+  width: 1.5vw;
+  height: 1.5vw;
+}
+
+.largeSize {
+  width: 2vw;
+  height: 2vw;
+}
+
+.smallBright {
+  box-shadow: 0 0 0.5vw var(--glow-color), 0 0 1vw var(--glow-color),
+    0 0 1.5vw var(--glow-color);
+}
+
+.mediumBright {
+  box-shadow: 0 0 1vw var(--glow-color), 0 0 2vw var(--glow-color),
+    0 0 3vw var(--glow-color);
+}
+
+.largeBright {
+  box-shadow: 0 0 1.5vw var(--glow-color), 0 0 3vw var(--glow-color),
+    0 0 4vw var(--glow-color);
+}
