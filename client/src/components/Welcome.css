@@ -1,4 +1,8 @@
 .box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 30vw;
   height: 20vw;
   border-radius: 3vw;
@@ -12,7 +16,22 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  animation: showAndHide 8s forwards;
+  z-index: 100;
+  animation: showAndHide 10s forwards;
+}
+
+.box h2 {
+  padding: 0;
+  margin: 0;
+  font-weight: normal;
+}
+
+.box p:last-child:after {
+  content: " (Click anywhere to continue) ";
+  font-size: 0.8em;
+  display: block;
+  margin-top: 10px;
+  opacity: 0.8;
 }
 
 @keyframes showAndHide {
