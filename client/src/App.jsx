@@ -27,7 +27,7 @@ function App() {
   useEffect(() => {
     const timeout = setTimeout(() => {
       setShowWelcome(false);
-    }, 5000);
+    }, 3000);
 
     return () => clearTimeout(timeout);
   }, []);
@@ -40,10 +40,6 @@ function App() {
 
   // Function to handle the click event
   const handleClick = (event) => {
-    if (showWelcome) {
-      setShowWelcome(false);
-      return;
-    }
 
     const x = event.clientX; // X position of click
     const y = event.clientY; // Y position of click

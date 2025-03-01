@@ -17,7 +17,7 @@
   justify-content: center;
   align-items: center;
   z-index: 100;
-  animation: showAndHide 5s ease-in;
+  animation: showAndHide 3s ease-in;
 }
 
 .box h2 {
@@ -28,7 +28,7 @@
 }
 
 .box p:last-child:after {
-  content: " (Click anywhere to continue) ";
+  /* content: " (Click anywhere to continue) "; */
   font-size: 0.8em;
   display: block;
   margin-top: 10px;
