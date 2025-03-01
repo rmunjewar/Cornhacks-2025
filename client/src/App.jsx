@@ -4,7 +4,10 @@ import nightSky from './assets/night_sky.jpg';
 import './App.css'
 
 function App() {
+<<<<<<< Updated upstream
   
+=======
+>>>>>>> Stashed changes
 
   const [stars, setStars] = useState([]);
   const [floatingObjects, setFloatingObjects] = useState([]);
