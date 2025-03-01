@@ -15,6 +15,8 @@ import "./App.css";
 
 import { exampleStars } from "./ExampleStars";
 
+const objectImages = [corn, cow, ufo, astronaut, moon];
+
 function App() {
   const [stars, setStars] = useState([]);
   const [floatingObjects, setFloatingObjects] = useState([]);
@@ -23,6 +25,7 @@ function App() {
   const [size, setSize] = useState("medium");
   const [color, setColor] = useState("#ffffff");
   const [brightness, setBrightness] = useState("medium");
+
 
   const addStar = (size, color, brightness, x, y) => {
     const newStar = {
