@@ -1,6 +1,7 @@
 .circle {
   border-radius: 50%;
   --glow-color: #fff;
+  position: absolute;
 }
 
 .smallSize {
