@@ -3,6 +3,7 @@
   --backgroundColor: white;
   --glow-color: #fff;
   position: absolute;
+  z-index: 100;
 }
 
 .smallSize {
