@@ -33,7 +33,7 @@ function App() {
     return () => clearTimeout(timeout);
   }, []);
 
-  let setStar = true;
+  let setStar = false;
 
   if (appState === "setStar") {
     setStar = true;
