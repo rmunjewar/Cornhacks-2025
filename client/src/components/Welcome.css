@@ -43,3 +43,9 @@
     visibility: hidden;
   }
 }
+
+.box h2 {
+  padding: 0;
+  margin: 0;
+  font-weight: normal;
+}
