@@ -19,17 +19,15 @@ function Star({ size, color, brightness, x, y }) {
   }
 
   return (
-    // <div style={{ backgroundColor: "black", width: "6vw", height: "6vw" }}>
     <div
       className={`circle ${sizeClass} ${brightnessClass}`}
       style={{
         "--backgroundColor": color,
         "--glow-color": color,
-        "--x": { x },
-        "--y": { y },
+        top: x,
+        left: y,
       }}
     ></div>
-    // {/* </div> */}
   );
 }
 
