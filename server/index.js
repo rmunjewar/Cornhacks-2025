@@ -18,13 +18,13 @@ const io = new Server(expressServer, {
 })
 
 // More back-end should go here
-const stars = exampleStars
+let stars = exampleStars
 
-const TICK_RATE = 100;
+const TICK_RATE = 10;
 const ROTATE = {
     x: 50,
     y: 100,
-    theta: -0.001
+    theta: -0.01
 }
 
 const SHOOTING_STAR_CHANCE = 0
@@ -50,7 +50,7 @@ function rotateStars() {
     })
 }
 function keepStarCondition(star) {
-    return star.x >= 0
+    return star.x > -5 && star.y < 101
 }
 
 function triggerRandomEvents() {
@@ -130,7 +130,7 @@ function triggerUFO() {
 function tick() {
     // Update and filter stars
     rotateStars()
-    stars.filter(keepStarCondition)
+    stars = stars.filter(keepStarCondition)
     io.emit('stars-update', (JSON.stringify(stars)))
 
     // Calculate random events
