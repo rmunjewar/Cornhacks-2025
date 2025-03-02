@@ -19,3 +19,7 @@
   margin-left: 1vw;
   margin-right: 1vw;
 }
+
+.timer:hover {
+  cursor: default;
+}
