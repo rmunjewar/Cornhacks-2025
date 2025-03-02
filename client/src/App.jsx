@@ -10,6 +10,7 @@ import moon from "./assets/moon.jpeg";
 import Welcome from "./components/Welcome";
 import Star from "./components/Star";
 import Object from "./components/Object";
+import ShootingStar from "./components/ShootingStar"
 import forestSkyline from "./assets/forest-skyline.png";
 import CustomizeStar from "./components/CustomizeStar";
 import About from "./components/About";
@@ -28,6 +29,7 @@ function App() {
 
   const [starPosition, setStarPosition] = useState({ x: 0, y: 0 });
   const [supernova, setSupernova] = useState(null);
+  const [shootingStars, setShootingStars] = useState([]);
 
   let actualTimeRemaining = 0;
   const [timeRemaining, setTimeRemaining] = useState(0);
@@ -148,7 +150,11 @@ function App() {
       setTimeRemaining(timeRemaining);
     });
 
-    socket.on("shooting-star", (shootingStar) => {});
+    socket.on("shootingStar", (shootingStar) => {
+      shootingStar.id = Date.now()
+      setShootingStars([...shootingStars, shootingStar]);
+      setTimeout(() => setShootingStar(shootingStars.slice(1)), 1000);
+    });
     socket.on("supernova", (supernova) => {
       setSupernova(supernova);
       setTimeout(() => setSupernova(null), 4000);
@@ -161,7 +167,7 @@ function App() {
     return () => {
       socket.off("stars-update");
       socket.off("timeout-update");
-      socket.off("shooting-star");
+      socket.off("shootingStar");
       socket.off("supernova");
       socket.off("ufo");
     };
@@ -213,7 +219,7 @@ function App() {
       <Music />
       <Timer timeLeft={timeRemaining} />
       {showAboutButton && <About />}
-
+      <RenderShootingStars stars={shootingStars} />
       <RenderObjects objects={ufos} />
       {supernova != null && (
         <Star
@@ -239,6 +245,21 @@ function RenderObjects({ objects }) {
         <Object
           key={object.id || index}
           image={objectImages[object.image]}
+          x={object.x}
+          y={object.y}
+          rotation={object.rotation}
+        />
+      ))}
+    </div>
+  );
+}
+
+function RenderShootingStars({ stars }) {
+  return (
+    <div>
+      {stars.map((object, index) => (
+        <ShootingStar
+          key={object.id || index}
           x={object.x}
           y={object.y}
           rotation={object.rotation}

@@ -25,15 +25,15 @@ server.listen(PORT, () => {
 
 let stars = exampleStars;
 
-const TICK_RATE = 200;
+const TICK_RATE = 1000;
 const ROTATE = {
   x: 50,
   y: 100,
   theta: -0.0001,
 };
 
-const SHOOTING_STAR_CHANCE = 0
-const SUPERNOVA_CHANCE = 0.0001
+const SHOOTING_STAR_CHANCE = 0.001
+const SUPERNOVA_CHANCE = 0.00005
 const UFO_CHANCE = 0.001
 
 // Function to define the amount of time the client has to wait before placing another star, in milliseconds
@@ -87,11 +87,9 @@ function triggerShootingStar() {
   const shootingStar = {
     x: Math.random() * 100,
     y: Math.random() * 100,
-    direction: Math.random() * 2 * Math.PI,
-    speed: Math.random() * 10,
-    duration: Math.random * 900 + 100,
+    direction: Math.random() * Math.PI + Math.PI,
   };
-  io.emit("shooting-star", shootingStar);
+  io.emit("shootingStar", shootingStar);
 }
 function triggerSupernova() {
   if (stars.length > 0) {

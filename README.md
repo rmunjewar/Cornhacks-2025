@@ -3,8 +3,12 @@
 This project is a collaborative project that allows users to create a personalized night sky experience where they can add stars to a virtual sky with customizable attributes, including brightness, size, color, and a personal wish. Built using **React** and **JavaScript (JSX)**, this interactive web app allows people to express their creativity and make their own night sky with meaningful touches.
 
 ---
-Contributors:
 ![GitHub contributors](https://img.shields.io/github/contributors/rmunjewar/Cornhacks-2025)
+
+- 👩‍🚀 [@SWally19](https://github.com/SWally19)
+- 👩‍🚀 [@rmunjewar](https://github.com/rmunjewar)
+- 👩‍🚀 [@cdelzell](https://github.com/cdelzell)
+- 🧑‍🚀 [@cwelstead](https://github.com/cwelstead)
 
 ---
 ## Features
@@ -49,7 +53,7 @@ Ensure you have the following installed on your system:
 
 ## Installation & Setup
 To use, follow these steps:
-1.Clone the Repository.
+1. Clone the Repository.
    ```sh
     git clone https://github.com/your-username/Cornhacks-2025.git
     cd Cornhacks-2025
