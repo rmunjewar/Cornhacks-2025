@@ -1,18 +1,17 @@
-import express, { Router } from "express";
+import express from "express";
 import { Server } from "socket.io";
 import { exampleStars } from "../client/src/ExampleStars.js";
 import cors from 'cors'
+import { createServer } from "http";
 
 // Setting up the server
 const PORT = process.env.PORT || 8080;
 const app = express();
 
-const expressServer = app.listen(PORT, () => {
-  console.log(`Server is up and running! Listening with port ${PORT}`);
-});
+const server = createServer(app)
 app.use(cors({ origin: ["http://localhost:5173", "https://a-brighter-future-oqqn.onrender.com"], methods: ["GET", "POST"]}))
 
-const io = new Server(expressServer, {
+const io = new Server(server, {
   cors: {
     origin:
       process.env.NODE_ENV === "production" ? false : ["http://localhost:5173", "https://a-brighter-future-oqqn.onrender.com"],
