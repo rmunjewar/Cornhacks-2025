@@ -8,10 +8,8 @@
 }
 
 .popupBox {
-<<<<<<< Updated upstream
-=======
-  width: 43vw;
-  height: 10vw;
+  width: 54vw;
+  height: 11vw;
   display: flex;
   flex-direction: column;
   background: rgba(255, 255, 255, 0.25);
@@ -19,28 +17,14 @@
   border-radius: 2vh;
   text-align: center;
   color: rgb(251, 251, 251);
+  /* margin-top: auto; */
   justify-content: center;
   align-items: center;
   flex-grow: 0;
+  align-items: center;
   z-index: 100;
 }
->>>>>>> Stashed changes
 
-    width: 54vw;
-    height: 11vw;
-    display: flex;
-    flex-direction: column;
-    background: rgba(255, 255, 255, 0.25);
-    padding: 2vw;
-    border-radius: 2vh;
-    text-align: center;
-    color: rgb(251, 251, 251);
-    /* margin-top: auto; */
-    justify-content: center;
-    align-items: center;
-    flex-grow: 0;
-    align-items: center;
-    z-index: 100;
 .heading {
   font-size: 2.5vw;
   color: rgb(251, 251, 251);
@@ -72,17 +56,28 @@
 }
 
 .submit {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2vh;
-    width: 8vw;
-    height: 2vw;
-    /* padding: 1.5vh; */
-    margin-top: 1vw;
-    color: rgb(251, 251, 251);
-    box-shadow: 0 0 0.07vw #03030385, 0 0 0.1vw #08080884, 0 0 0.2vw #e6ede6,
-        0 0 0.3vw #e6ede6, 0 0 0.3vw #e6ede6, 0 0 0.4vw #e6ede6, 0 0 0.6vw #e6ede6;
-    background-color: rgba(251, 251, 251, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2vh;
+  width: 8vw;
+  height: 2vw;
+  /* padding: 1.5vh; */
+  margin-top: 1vw;
+  color: rgb(251, 251, 251);
+  box-shadow: 0 0 0.07vw #03030385, 0 0 0.1vw #08080884, 0 0 0.2vw #e6ede6,
+    0 0 0.3vw #e6ede6, 0 0 0.3vw #e6ede6, 0 0 0.4vw #e6ede6, 0 0 0.6vw #e6ede6;
+  background-color: rgba(251, 251, 251, 0.4);
 }
 
+.wish {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  font-size: 1vw;
+}
+
+.wishInput {
+  border-radius: 1vw;
+}

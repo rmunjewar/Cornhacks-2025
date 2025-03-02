@@ -67,9 +67,10 @@ function CustomizeStar({ starX, starY, onAddStar }) {
             </div>
 
             <div>
-              <label>
-                wish:{" "}
+              <label className="wish">
+                Wish:&nbsp;&nbsp;{" "}
                 <input
+                  className="wishInput"
                   type="wish"
                   value={wish}
                   onChange={(e) => setWish(e.target.value)}
