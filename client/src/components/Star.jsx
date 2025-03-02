@@ -2,10 +2,11 @@ import { useState } from "react";
 import { socket } from "../SocketFactory";
 import "./Star.css";
 
-function Star({ size, color, brightness, x, y, supernova}) {
+function Star({ size, color, brightness, x, y, supernova, shootingStar }) {
   let sizeClass = "mediumSize";
   let brightnessClass = "mediumBright";
   let supernovaClass = "";
+  let shootingStarClass = "";
 
   if (size === "small") {
     sizeClass = "smallSize";
@@ -21,6 +22,10 @@ function Star({ size, color, brightness, x, y, supernova}) {
 
   if (supernova) {
     supernovaClass = "supernova";
+  }
+
+  if (shootingStar) {
+    shootingStarClass = "shootingStar";
   }
 
   return (
