@@ -74,10 +74,11 @@ function CustomizeStar({ starX, starY, onAddStar }) {
               </select>
             </div>
 
-            <div className="wish-input-container">
+            <div className="wish">
               <label>
                 Wish:{" "}
                 <input
+                  className="wishInput"
                   type="text"
                   value={wish}
                   onChange={handleWishChange}
