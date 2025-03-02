@@ -38,7 +38,7 @@ const UFO_CHANCE = 0.001
 
 // Function to define the amount of time the client has to wait before placing another star, in milliseconds
 function getTimeout() {
-  return 5000 + 55 * Math.pow(stars.length, 2);
+  return 5000 + 5.5 * Math.pow(stars.length, 2);
 }
 
 // Rotates all stars about the point ROTATE
