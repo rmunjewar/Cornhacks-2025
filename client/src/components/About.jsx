@@ -9,7 +9,7 @@ function About() {
         <div>
             {showAbout && (
                 <div>
-                    <div className="heading">
+                    <div className="headingAbout">
                         A BRIGHTER FUTURE
                     </div>
                     <div className="subheading">
