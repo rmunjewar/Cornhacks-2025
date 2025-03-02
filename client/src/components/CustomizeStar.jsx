@@ -7,6 +7,7 @@ function CustomizeStar({ starX, starY, onAddStar }) {
   const [size, setSize] = useState("medium");
   const [color, setColor] = useState("#ffffff");
   const [brightness, setBrightness] = useState("medium");
+  const [wish, setWish] = useState("");
 
   function addStar() {
     const star = {
@@ -15,6 +16,7 @@ function CustomizeStar({ starX, starY, onAddStar }) {
       size: size,
       color: color,
       brightness: brightness,
+      wish: wish,
     };
     socket.emit("star-add", star);
     onAddStar();
@@ -22,7 +24,14 @@ function CustomizeStar({ starX, starY, onAddStar }) {
 
   return (
     <>
-      <Star x={starX} y={starY} size={size} color={color} brightness={brightness} />
+      <Star
+        x={starX}
+        y={starY}
+        size={size}
+        color={color}
+        brightness={brightness}
+        wish={wish}
+      />
       <div className="container">
         <div className="popupBox">
           <div className="heading">Customize your star!</div>
@@ -55,6 +64,17 @@ function CustomizeStar({ starX, starY, onAddStar }) {
                 <option value="medium">Medium</option>
                 <option value="bright">Bright</option>
               </select>
+            </div>
+
+            <div>
+              <label>
+                wish:{" "}
+                <input
+                  type="wish"
+                  value={wish}
+                  onChange={(e) => setWish(e.target.value)}
+                />
+              </label>
             </div>
           </div>
           <button className="submit" onClick={() => addStar()}>
