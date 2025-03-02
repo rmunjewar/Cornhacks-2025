@@ -32,6 +32,7 @@ function Star({ size, color, brightness, x, y, supernova, shootingStar, wish}) {
       className="star-container"
       style={{ position: "absolute", top: `${y}vh`, left: `${x}vw` }}
     >
+      <div className="shootingStar"></div>
       <div
         className={`circle ${supernovaClass} ${shootingStarClass}`}
         style={{
