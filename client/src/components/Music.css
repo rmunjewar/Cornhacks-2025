@@ -1,0 +1,15 @@
+.playMusic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 9vw;
+  height: 2vw;
+  position: absolute;
+  bottom: 1vw;
+  right: 10vw;
+  box-shadow: 0 0 0.4vw #646464, 0 0 0.4vw #646464, 0 0 0.4vw #646464;
+  background-color: transparent;
+  font-size: 1vw;
+  color: white;
+  z-index: 1000;
+}

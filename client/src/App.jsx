@@ -14,6 +14,7 @@ import forestSkyline from "./assets/forest-skyline.png";
 import CustomizeStar from "./components/CustomizeStar";
 import About from "./components/About";
 import Timer from "./components/Timer";
+import Music from "./components/Music";
 import "./App.css";
 
 const objectImages = [galileo, corn, cow, ufo, astronaut, moon];
@@ -31,14 +32,6 @@ function App() {
   let actualTimeRemaining = 0;
   const [timeRemaining, setTimeRemaining] = useState(0);
   const [nextTimeout, setNextTimeout] = useState(0);
-
-  // const audioRef = useRef(null);
-
-  // const handlePlayMusic = () => {
-  //   if (audioRef.current) {
-  //     audioRef.current.play(); // Start audio playback
-  //   }
-  // };
 
   function resetAppState() {
     setAppState("timeout");
@@ -190,16 +183,6 @@ function App() {
       }}
       onClick={handleClick}
     >
-      {/* <button onHover={handlePlayMusic} style={{ position: "absolute", zIndex: 1, padding: "10px 20px" }}>
-        Start Music
-      </button>
-      <audio
-        ref={audioRef}
-        src="./assets/background-music.mp3"
-        type="audio/mp3"
-        loop
-        preload="auto" // Ensures the audio is loaded
-      ></audio> */}
       <div
         className="forest-skyline"
         style={{
@@ -227,6 +210,7 @@ function App() {
         />
       )}
       {showWelcome && <Welcome />}
+      <Music />
       <Timer timeLeft={timeRemaining} />
       {showAboutButton && <About />}
 
