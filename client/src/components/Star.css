@@ -22,11 +22,11 @@
   position: absolute;
   background-color: rgba(255, 255, 255, 0.7);
   color: black;
-  padding: 10px 15px;
-  border-radius: 4px;
-  font-size: 12px;
-  max-width: 300px;
-  min-width: 150px;
+  padding: 0.5vw 1vw;
+  border-radius: 1vw;
+  font-size: 1vw;
+  max-width: 7vw;
+  min-width: 1vw;
   word-wrap: break-word;
   margin-left: 1vw;
   top: 50%;
