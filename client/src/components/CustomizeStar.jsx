@@ -7,7 +7,7 @@ import Slider from "@mui/material/Slider";
 function CustomizeStar({ starX, starY, onAddStar }) {
   const [size, setSize] = useState(4);
   const [color, setColor] = useState("#ffffff");
-  const [brightness, setBrightness] = useState("medium");
+  const [brightness, setBrightness] = useState(0.6);
   const [wish, setWish] = useState("");
   const maxCharacters = 100;
 
@@ -55,7 +55,7 @@ function CustomizeStar({ starX, starY, onAddStar }) {
                 <option value="#A4FFFF">Celestial Cyan</option>
               </select>
             </div>
-            <div className="sliderStyle">
+            <div className="sliderStyle size">
               <p>Size:&nbsp;&nbsp;</p>
 
               <Slider
@@ -73,7 +73,7 @@ function CustomizeStar({ starX, starY, onAddStar }) {
                 <option value="large">Large</option>
               </select> */}
             </div>
-            <div className="sliderStyle">
+            <div className="sliderStyle bright">
               <p>Brightness:&nbsp;&nbsp;</p>
 
               <Slider
