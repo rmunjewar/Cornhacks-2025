@@ -13,7 +13,7 @@ function Star({ size, color, brightness, x, y, supernova, shootingStar, wish}) {
   }
 
   if (shootingStar){
-    shootingStarClass = "shooting-star";
+    shootingStarClass = "shootingStar";
   }
 
   const handleMouseEnter = () => {

@@ -148,7 +148,7 @@ function App() {
       setTimeRemaining(timeRemaining);
     });
 
-    socket.on("shooting-star", (shootingStar) => {
+    socket.on("shootingStar", (shootingStar) => {
       setShootingStar(shootingStar);
       setTimeout(() => setShootingStar(null), 4000);
     });
@@ -164,7 +164,7 @@ function App() {
     return () => {
       socket.off("stars-update");
       socket.off("timeout-update");
-      socket.off("shooting-star");
+      socket.off("shootingStar");
       socket.off("supernova");
       socket.off("ufo");
     };

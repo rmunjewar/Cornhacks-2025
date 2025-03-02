@@ -91,7 +91,7 @@ function triggerShootingStar() {
     speed: Math.random() * 10,
     duration: Math.random() * 900 + 100,
   };
-  io.emit("shooting-star", shootingStar);
+  io.emit("shootingStar", shootingStar);
 }
 function triggerSupernova() {
   if (stars.length > 0) {
