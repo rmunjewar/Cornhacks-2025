@@ -2,9 +2,10 @@ import "./CustomizeStar.css";
 import { useState } from "react";
 import { socket } from "../SocketFactory";
 import Star from "./Star";
+import Slider from "@mui/material/Slider";
 
 function CustomizeStar({ starX, starY, onAddStar }) {
-  const [size, setSize] = useState("medium");
+  const [size, setSize] = useState(4);
   const [color, setColor] = useState("#ffffff");
   const [brightness, setBrightness] = useState("medium");
   const [wish, setWish] = useState("");
@@ -56,11 +57,12 @@ function CustomizeStar({ starX, starY, onAddStar }) {
             </div>
             <div>
               Size:&nbsp;&nbsp;
-              <select value={size} onChange={(e) => setSize(e.target.value)}>
+              <Slider size="small" value={size} onChange={setSize} />
+              {/* <select value={size} onChange={(e) => setSize(e.target.value)}>
                 <option value="small">Small</option>
                 <option value="medium">Medium</option>
                 <option value="large">Large</option>
-              </select>
+              </select> */}
             </div>
             <div>
               Brightness:&nbsp;&nbsp;
