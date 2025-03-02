@@ -10,6 +10,7 @@ import moon from "./assets/moon.jpeg";
 import Welcome from "./components/Welcome";
 import Star from "./components/Star";
 import Object from "./components/Object";
+import ShootingStar from "./components/ShootingStar"
 import forestSkyline from "./assets/forest-skyline.png";
 import CustomizeStar from "./components/CustomizeStar";
 import About from "./components/About";
@@ -27,7 +28,7 @@ function App() {
 
   const [starPosition, setStarPosition] = useState({ x: 0, y: 0 });
   const [supernova, setSupernova] = useState(null);
-  const [shootingStar, setShootingStar] = useState(null);
+  const [shootingStars, setShootingStars] = useState(null);
 
   let actualTimeRemaining = 0;
   const [timeRemaining, setTimeRemaining] = useState(0);
@@ -149,8 +150,9 @@ function App() {
     });
 
     socket.on("shootingStar", (shootingStar) => {
-      setShootingStar(shootingStar);
-      setTimeout(() => setShootingStar(null), 4000);
+      shootingStar.id = Date.now()
+      setShootingStars([...shootingStars, shootingStar]);
+      setTimeout(() => setShootingStar(shootingStars.slice(1)), 1000);
     });
     socket.on("supernova", (supernova) => {
       setSupernova(supernova);
@@ -215,7 +217,7 @@ function App() {
       {showWelcome && <Welcome />}
       <Timer timeLeft={timeRemaining} />
       {showAboutButton && <About />}
-
+      <RenderShootingStars stars={shootingStars} />
       <RenderObjects objects={ufos} />
       {supernova != null && (
         <Star
@@ -241,6 +243,21 @@ function RenderObjects({ objects }) {
         <Object
           key={object.id || index}
           image={objectImages[object.image]}
+          x={object.x}
+          y={object.y}
+          rotation={object.rotation}
+        />
+      ))}
+    </div>
+  );
+}
+
+function RenderShootingStars({ stars }) {
+  return (
+    <div>
+      {stars.map((object, index) => (
+        <ShootingStar
+          key={object.id || index}
           x={object.x}
           y={object.y}
           rotation={object.rotation}
