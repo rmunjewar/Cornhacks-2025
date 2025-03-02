@@ -32,6 +32,14 @@ function App() {
   const [timeRemaining, setTimeRemaining] = useState(0);
   const [nextTimeout, setNextTimeout] = useState(0);
 
+  // const audioRef = useRef(null);
+
+  // const handlePlayMusic = () => {
+  //   if (audioRef.current) {
+  //     audioRef.current.play(); // Start audio playback
+  //   }
+  // };
+
   function resetAppState() {
     setAppState("timeout");
     actualTimeRemaining = nextTimeout;
@@ -182,6 +190,16 @@ function App() {
       }}
       onClick={handleClick}
     >
+      {/* <button onHover={handlePlayMusic} style={{ position: "absolute", zIndex: 1, padding: "10px 20px" }}>
+        Start Music
+      </button>
+      <audio
+        ref={audioRef}
+        src="./assets/background-music.mp3"
+        type="audio/mp3"
+        loop
+        preload="auto" // Ensures the audio is loaded
+      ></audio> */}
       <div
         className="forest-skyline"
         style={{

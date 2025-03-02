@@ -4,6 +4,7 @@
   align-items: baseline;
   margin-bottom: 3vw;
   margin-right: 3vw;
+  z-index: 500;
 }
 
 .headingAbout {
