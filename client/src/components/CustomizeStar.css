@@ -37,7 +37,7 @@
     color: rgb(251, 251, 251);
     margin: 0.2vw;
     gap: 2vw;
-    padding: 1vw;
+    padding-top: 1vw;
     font-size: 1vw;
   }
 
@@ -85,8 +85,6 @@
   font-size: 2vh;
   width: 8vw;
   height: 2vw;
-  /* padding: 1.5vh; */
-  margin-top: 1vw;
   color: rgb(251, 251, 251);
   box-shadow: 0 0 0.07vw #03030385, 0 0 0.1vw #08080884, 0 0 0.2vw #e6ede6,
     0 0 0.3vw #e6ede6, 0 0 0.3vw #e6ede6, 0 0 0.4vw #e6ede6, 0 0 0.6vw #e6ede6;
