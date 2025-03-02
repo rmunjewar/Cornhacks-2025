@@ -147,7 +147,7 @@ function triggerUFO() {
     io.emit('ufo', (ufo))
 }
 
-function tick() {
+setInterval(() => {
     // Update and filter stars
     rotateStars()
     stars = stars.filter(keepStarCondition)
@@ -159,9 +159,7 @@ function tick() {
     // console.log("tick")
     
     io.emit('stars-update', (JSON.stringify(stars)))
-    setTimeout(tick, TICK_RATE)
-}
-tick() // starts ticking every TICK_RATE milliseconds
+}, TICK_RATE)
 
 // Handles client connection and listens for messages
 io.on('connection', socket => {
