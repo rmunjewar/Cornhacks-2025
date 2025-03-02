@@ -95,14 +95,29 @@
 
 .wish {
   display: flex;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   flex-direction: row;
   font-size: 1vw;
 }
 
+.wish p {
+  margin-top: -0.5vw;
+}
+
 .wishInput {
   border-radius: 1vw;
   width: 9vw;
-  height: 2vw;
+  height: 1.5vw;
+}
+
+.inputAndChars {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  flex-direction: column;
+}
+
+.characterCount {
+  font-size: 1vw;
 }

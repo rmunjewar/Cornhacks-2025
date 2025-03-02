@@ -75,8 +75,8 @@ function CustomizeStar({ starX, starY, onAddStar }) {
             </div>
 
             <div className="wish">
-              <label>
-                Wish:{" "}
+              <p> Wish:&nbsp;&nbsp;</p>
+              <div className="inputAndChars">
                 <input
                   className="wishInput"
                   type="text"
@@ -84,9 +84,9 @@ function CustomizeStar({ starX, starY, onAddStar }) {
                   onChange={handleWishChange}
                   maxLength={maxCharacters}
                 />
-              </label>
-              <div className="character-count">
-                {wish.length}/{maxCharacters}
+                <div className="characterCount">
+                  {wish.length}/{maxCharacters}
+                </div>
               </div>
             </div>
           </div>
