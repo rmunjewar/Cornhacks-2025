@@ -25,7 +25,7 @@ function About() {
                     1. Click anywhere on the night sky to place a star.
                     </div>
                     <div className="description">
-                    2. Customize your star by choosing its color, size, and brightness. 
+                    2. Customize your star by choosing its color, size, brightness, and making a wish. 
                     </div>
                     <div className="description">
                     3. Enjoy the cosmic view! 
