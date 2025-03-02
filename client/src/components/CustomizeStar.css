@@ -78,6 +78,19 @@
   font-style: normal;
 }
 
+.sliderStyle {
+  margin-top: -1.3vw;
+  width: 9vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.slider {
+  color: white;
+}
+
 .submit {
   display: flex;
   justify-content: center;

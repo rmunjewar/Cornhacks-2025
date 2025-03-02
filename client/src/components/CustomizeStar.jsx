@@ -55,25 +55,32 @@ function CustomizeStar({ starX, starY, onAddStar }) {
                 <option value="#A4FFFF">Celestial Cyan</option>
               </select>
             </div>
-            <div>
-              Size:&nbsp;&nbsp;
-              <Slider size="small" value={size} onChange={setSize} />
+            <div className="sliderStyle">
+              <p>Size:&nbsp;&nbsp;</p>
+
+              <Slider
+                className="slider"
+                size="small"
+                value={size}
+                color="#FFCB6C"
+                onChange={(e) => setSize(e.target.value)}
+              />
               {/* <select value={size} onChange={(e) => setSize(e.target.value)}>
                 <option value="small">Small</option>
                 <option value="medium">Medium</option>
                 <option value="large">Large</option>
               </select> */}
             </div>
-            <div>
-              Brightness:&nbsp;&nbsp;
-              <select
+            <div className="sliderStyle">
+              <p>Brightness:&nbsp;&nbsp;</p>
+
+              <Slider
+                className="slider"
+                size="small"
                 value={brightness}
+                color="#FFCB6C"
                 onChange={(e) => setBrightness(e.target.value)}
-              >
-                <option value="dim">Dim</option>
-                <option value="medium">Medium</option>
-                <option value="bright">Bright</option>
-              </select>
+              />
             </div>
 
             <div className="wish">
