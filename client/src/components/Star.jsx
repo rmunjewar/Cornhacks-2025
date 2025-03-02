@@ -2,12 +2,13 @@ import { useState } from "react";
 import { socket } from "../SocketFactory";
 import "./Star.css";
 
+
 function Star({ size, color, brightness, x, y, supernova, wish }) {
   const [isHovering, setIsHovering] = useState(false);
-
   let sizeClass = "mediumSize";
   let brightnessClass = "mediumBright";
   let supernovaClass = "";
+  let shootingStarClass = "";
 
   if (size === "small") {
     sizeClass = "smallSize";
@@ -25,6 +26,7 @@ function Star({ size, color, brightness, x, y, supernova, wish }) {
     supernovaClass = "supernova";
   }
 
+
   const handleMouseEnter = () => {
     if (wish) {
       setIsHovering(true);
@@ -34,6 +36,7 @@ function Star({ size, color, brightness, x, y, supernova, wish }) {
   const handleMouseLeave = () => {
     setIsHovering(false);
   };
+
 
   return (
     <div

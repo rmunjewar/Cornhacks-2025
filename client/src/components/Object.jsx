@@ -1,6 +1,12 @@
+import "./Object.css";
+
 function Object({ image, x, y, rotation = 0 }) {
+  // galileo, corn, cow, ufo, astronaut, moon
+  let imageClass = image;
+
   return (
     <div
+      className={image}
       style={{
         width: "2.5vw",
         height: "2.5vw",
