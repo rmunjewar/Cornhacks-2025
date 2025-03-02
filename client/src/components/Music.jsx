@@ -28,6 +28,7 @@ function Music() {
         ref={audioRef}
         src="./assets/background-music.mp3"
         type="audio/mp3"
+        loop
         preload="auto" // Ensures the audio is loaded
       ></audio>
     </div>
