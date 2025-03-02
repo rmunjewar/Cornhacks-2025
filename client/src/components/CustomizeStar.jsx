@@ -2,11 +2,12 @@ import "./CustomizeStar.css";
 import { useState } from "react";
 import { socket } from "../SocketFactory";
 import Star from "./Star";
+import Slider from "@mui/material/Slider";
 
 function CustomizeStar({ starX, starY, onAddStar }) {
-  const [size, setSize] = useState("medium");
+  const [size, setSize] = useState(4);
   const [color, setColor] = useState("#ffffff");
-  const [brightness, setBrightness] = useState("medium");
+  const [brightness, setBrightness] = useState(0.6);
   const [wish, setWish] = useState("");
   const maxCharacters = 100;
 
@@ -54,24 +55,37 @@ function CustomizeStar({ starX, starY, onAddStar }) {
                 <option value="#A4FFFF">Celestial Cyan</option>
               </select>
             </div>
-            <div>
-              Size:&nbsp;&nbsp;
-              <select value={size} onChange={(e) => setSize(e.target.value)}>
+            <div className="sliderStyle size">
+              <p>Size:&nbsp;&nbsp;</p>
+
+              <Slider
+                className="slider"
+                size="small"
+                value={size}
+                color="#FFCB6C"
+                min={5}
+                max={10}
+                onChange={(e) => setSize(e.target.value)}
+              />
+              {/* <select value={size} onChange={(e) => setSize(e.target.value)}>
                 <option value="small">Small</option>
                 <option value="medium">Medium</option>
                 <option value="large">Large</option>
-              </select>
+              </select> */}
             </div>
-            <div>
-              Brightness:&nbsp;&nbsp;
-              <select
+            <div className="sliderStyle bright">
+              <p>Brightness:&nbsp;&nbsp;</p>
+
+              <Slider
+                className="slider"
+                size="small"
                 value={brightness}
-                onChange={(e) => setBrightness(e.target.value)}
-              >
-                <option value="dim">Dim</option>
-                <option value="medium">Medium</option>
-                <option value="bright">Bright</option>
-              </select>
+                color="#FFCB6C"
+                min={0.6}
+                max={1}
+                step={0.05}
+                onChange={(e) => setBrightness(parseFloat(e.target.value))}
+              />
             </div>
 
             <div className="wish">
