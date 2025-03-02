@@ -5,6 +5,7 @@ import corn from "./assets/corn.jpeg";
 import cow from "./assets/cow.jpeg";
 import ufo from "./assets/ufo.jpeg";
 import astronaut from "./assets/astronaut.jpeg";
+import galileo from "./assets/galileo.png";
 import moon from "./assets/moon.jpeg";
 import Welcome from "./components/Welcome";
 import Star from "./components/Star";
@@ -14,9 +15,9 @@ import CustomizeStar from "./components/CustomizeStar";
 import Timer from "./components/Timer";
 import "./App.css";
 
-const objectImages = [corn, cow, ufo, astronaut, moon];
+const objectImages = [galileo, corn, cow, ufo, astronaut, moon];
 
-// Path types for objects to follow
+// diff paths for objects
 const PATH_TYPES = [
   "straight", //  straight line
   "wavy", // wavy pattern
@@ -160,7 +161,7 @@ function App() {
 
   useEffect(() => {
     // using interval effect
-    const createInterval = setInterval(createFloatingObject, 30000);
+    const createInterval = setInterval(createFloatingObject, 50000);
 
     createFloatingObject();
 
