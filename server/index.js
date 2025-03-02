@@ -9,6 +9,7 @@ const app = express();
 const expressServer = app.listen(PORT, () => {
   console.log(`Server is up and running! Listening with port ${PORT}`);
 });
+app.use(cors({ origin: ["http://localhost:5173", "https://a-brighter-future-oqqn.onrender.com"], methods: ["GET", "POST"]}))
 
 const io = new Server(expressServer, {
   cors: {
