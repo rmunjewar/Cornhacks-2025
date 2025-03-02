@@ -13,7 +13,7 @@ const expressServer = app.listen(PORT, () => {
 const io = new Server(expressServer, {
   cors: {
     origin:
-      process.env.NODE_ENV === "production" ? false : ["http://localhost:5173"],
+      process.env.NODE_ENV === "production" ? false : ["http://localhost:5173", "https://a-brighter-future-oqqn.onrender.com"],
   },
 });
 
@@ -23,7 +23,7 @@ const TICK_RATE = 200;
 const ROTATE = {
   x: 50,
   y: 100,
-  theta: -0.0002,
+  theta: -0.0001,
 };
 
 const SHOOTING_STAR_CHANCE = 0
@@ -60,19 +60,19 @@ function keepStarCondition(star) {
 function triggerRandomEvents() {
   // shooting star
   if (Math.random() <= SHOOTING_STAR_CHANCE) {
-    console.log("Look! A shooting star!");
+    // console.log("Look! A shooting star!");
     triggerShootingStar();
   }
 
   // supernova
   if (Math.random() <= SUPERNOVA_CHANCE) {
-    console.log("Uh oh, a supernova. Stay safe for the next 22 minutes.");
+    // console.log("Uh oh, a supernova. Stay safe for the next 22 minutes.");
     triggerSupernova();
   }
 
   // ufo
   if (Math.random() <= UFO_CHANCE) {
-    console.log("Look! A UFO!");
+    // console.log("Look! A UFO!");
     triggerUFO();
   }
 }
