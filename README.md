@@ -1,6 +1,13 @@
-# Cornhacks-2025
+# Cornhacks-2025 ☄️💫🛸
 ---
 This project is a collaborative project that allows users to create a personalized night sky experience where they can add stars to a virtual sky with customizable attributes, including brightness, size, color, and a personal wish. Built using **React** and **JavaScript (JSX)**, this interactive web app allows people to express their creativity and make their own night sky with meaningful touches.
+
+---
+Collaborators:
+
+<a href="https://github.com/OWNER/REPO/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=OWNER/REPO" />
+</a>
 
 ---
 ## Features
@@ -33,3 +40,31 @@ This project is a collaborative project that allows users to create a personaliz
 4. CSS and Animation:
 - CSS is used to style the background of the night sky and animate the stars and other objects.
 JavaScript handles the animation and user interaction, updating the canvas as new stars are added.
+
+---
+Follow these steps to install and run the project locally:
+
+## Prerequisites
+Ensure you have the following installed on your system:
+1. **Node.js** (Recommended: Latest LTS Version
+2. **npm** (Node Package Manager, included with Node.js)
+   
+
+## Installation & Setup
+To use, follow these steps:
+1.Clone the Repository.
+   ```sh
+    git clone https://github.com/your-username/Cornhacks-2025.git
+    cd Cornhacks-2025
+   ```
+2. Install Dependencies.
+   ```sh
+   npm install
+   ```
+3. Run Development Servor.
+   ```sh
+   npm run dev
+   ```
+Now you’re ready to explore your personalized night sky! 🚀✨
+
+
