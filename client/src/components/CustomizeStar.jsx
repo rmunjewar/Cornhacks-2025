@@ -67,11 +67,6 @@ function CustomizeStar({ starX, starY, onAddStar }) {
                 max={10}
                 onChange={(e) => setSize(e.target.value)}
               />
-              {/* <select value={size} onChange={(e) => setSize(e.target.value)}>
-                <option value="small">Small</option>
-                <option value="medium">Medium</option>
-                <option value="large">Large</option>
-              </select> */}
             </div>
             <div className="sliderStyle bright">
               <p>Brightness:&nbsp;&nbsp;</p>

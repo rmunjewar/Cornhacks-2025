@@ -3,7 +3,7 @@ import { socket } from "../SocketFactory";
 import "./Star.css";
 
 
-function Star({ size, color, brightness, x, y, supernova, wish }) {
+function Star({ size, color, brightness, x, y, supernova, wish}) {
   const [isHovering, setIsHovering] = useState(false);
   let supernovaClass = "";
   let shootingStarClass = "";
