@@ -3,11 +3,8 @@
 This project is a collaborative project that allows users to create a personalized night sky experience where they can add stars to a virtual sky with customizable attributes, including brightness, size, color, and a personal wish. Built using **React** and **JavaScript (JSX)**, this interactive web app allows people to express their creativity and make their own night sky with meaningful touches.
 
 ---
-Collaborators:
-
-<a href="https://github.com/OWNER/REPO/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=OWNER/REPO" />
-</a>
+Contributors:
+![GitHub contributors](https://img.shields.io/github/contributors/rmunjewar/Cornhacks-2025)
 
 ---
 ## Features
