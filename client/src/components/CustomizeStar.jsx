@@ -63,8 +63,8 @@ function CustomizeStar({ starX, starY, onAddStar }) {
                 size="small"
                 value={size}
                 color="#FFCB6C"
-                min={4}
-                max={8}
+                min={5}
+                max={10}
                 onChange={(e) => setSize(e.target.value)}
               />
               {/* <select value={size} onChange={(e) => setSize(e.target.value)}>
