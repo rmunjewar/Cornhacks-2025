@@ -92,7 +92,6 @@ function triggerSupernova() {
         const starIdx = Math.floor(Math.random() * stars.length)
         const supernova = stars.splice(starIdx, 1)[0]
         io.emit('supernova', supernova)
-        io.emit('stars-update', (JSON.stringify(stars)))
     }
 }
 function triggerUFO() {
@@ -143,14 +142,14 @@ function tick() {
     // Update and filter stars
     rotateStars()
     stars = stars.filter(keepStarCondition)
-    io.emit('stars-update', (JSON.stringify(stars)))
 
     // Calculate random events
     triggerRandomEvents()
 
     // debug message for tracking ticks
     // console.log("tick")
-
+    
+    io.emit('stars-update', (JSON.stringify(stars)))
     setTimeout(tick, TICK_RATE)
 }
 tick() // starts ticking every TICK_RATE milliseconds
