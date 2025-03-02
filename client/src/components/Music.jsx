@@ -7,19 +7,21 @@ function Music() {
   const [play, setPlay] = useState(true);
 
   const handlePlayMusic = () => {
-    if (audioRef.current && play) {
-      audioRef.current.play(); // Start audio playback
-      setPlay(false);
-    } else {
-      audioRef.current.pause();
-      setPlay(true);
+    if (audioRef.current) {
+      if (play) {
+        audioRef.current.pause(); // Pause audio
+      } else {
+        audioRef.current.play(); // Start audio playback
+      }
+      setPlay(!play); // Toggle the play state
     }
   };
 
   return (
     <div>
       <button className="playMusic" onClick={handlePlayMusic}>
-        Play Music
+        {play && <img src="./assets/sound-off.svg" />}
+        {!play && <img src="./assets/sound-high.svg" />}
       </button>
       <audio
         ref={audioRef}
