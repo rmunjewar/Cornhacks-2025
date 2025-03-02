@@ -4,7 +4,7 @@ import "./Music.css";
 
 function Music() {
   const audioRef = useRef(null);
-  const [play, setPlay] = useState(true);
+  const [play, setPlay] = useState(false);
 
   const handlePlayMusic = () => {
     if (audioRef.current) {
