@@ -8,6 +8,7 @@ function CustomizeStar({ starX, starY, onAddStar }) {
   const [color, setColor] = useState("#ffffff");
   const [brightness, setBrightness] = useState("medium");
   const [wish, setWish] = useState("");
+  const maxCharacters = 100;
 
   function addStar() {
     const star = {
@@ -21,6 +22,13 @@ function CustomizeStar({ starX, starY, onAddStar }) {
     socket.emit("star-add", star);
     onAddStar();
   }
+
+  const handleWishChange = (e) => {
+    const input = e.target.value;
+    if (input.length <= maxCharacters) {
+      setWish(input);
+    }
+  };
 
   return (
     <>
@@ -66,16 +74,19 @@ function CustomizeStar({ starX, starY, onAddStar }) {
               </select>
             </div>
 
-            <div>
-              <label className="wish">
-                Wish:&nbsp;&nbsp;{" "}
+            <div className="wish-input-container">
+              <label>
+                Wish:{" "}
                 <input
-                  className="wishInput"
-                  type="wish"
+                  type="text"
                   value={wish}
-                  onChange={(e) => setWish(e.target.value)}
+                  onChange={handleWishChange}
+                  maxLength={maxCharacters}
                 />
               </label>
+              <div className="character-count">
+                {wish.length}/{maxCharacters}
+              </div>
             </div>
           </div>
           <button className="submit" onClick={() => addStar()}>
