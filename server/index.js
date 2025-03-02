@@ -19,6 +19,10 @@ const io = new Server(server, {
   },
 });
 
+server.listen(PORT, () => {
+  console.log(`Server is up and running! Listening on port ${PORT}`);
+});
+
 let stars = exampleStars;
 
 const TICK_RATE = 200;
