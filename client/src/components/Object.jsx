@@ -2,8 +2,8 @@ function Object({ image, x, y, rotation = 0 }) {
   return (
     <div
       style={{
-        width: "2vw",
-        height: "2vw",
+        width: "2.5vw",
+        height: "2.5vw",
         backgroundImage: `url(${image})`,
         position: "absolute",
         left: `${x}vw`,
@@ -13,7 +13,7 @@ function Object({ image, x, y, rotation = 0 }) {
         zIndex: 1,
         opacity: 0.52,
         transform: `rotate(${rotation}deg)`,
-        transition: "transform 0.5s ease"
+        transition: "transform 0.5s ease",
       }}
     ></div>
   );

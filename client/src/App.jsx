@@ -21,7 +21,7 @@ const objectImages = [galileo, corn, cow, ufo, astronaut, moon];
 const PATH_TYPES = [
   "straight", //  straight line
   "wavy", // wavy pattern
-  "zigzag", //  zigzag pattern
+  "downfall", //  downfall pattern
   "diagonal-up", //  diagonally upward
   "diagonal-down", //  diagonally downward
 ];
@@ -124,17 +124,14 @@ function App() {
               // SINE WAVEEEEE
               newY = obj.originalY + Math.sin(newPhase) * obj.amplitude;
               break;
-            case "zigzag":
-              // ZIG ZAG MOVEMENTTTTT
-              newY =
-                obj.originalY +
-                ((newPhase % (2 * Math.PI)) / Math.PI - 1) * obj.amplitude;
+            case "downfall":
+              newY = obj.y - 0.9;
               break;
             case "diagonal-up":
-              newY = obj.y - 0.05;
+              newY = obj.y - 0.25;
               break;
             case "diagonal-down":
-              newY = obj.y + 0.05;
+              newY = obj.y + 0.25;
               break;
             default:
               break;
@@ -161,7 +158,7 @@ function App() {
 
   useEffect(() => {
     // using interval effect
-    const createInterval = setInterval(createFloatingObject, 50000);
+    const createInterval = setInterval(createFloatingObject, 40000);
 
     createFloatingObject();
 
