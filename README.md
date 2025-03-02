@@ -29,7 +29,7 @@ This project is a collaborative project that allows users to create a personaliz
 - Pick a color from a list.
 - Write a personal wish for that specific star.
 3. Rendering Stars:
-- Each star is drawn on a canvas, and its attributes (size, brightness, color, and wish) are rendered dynamically.
+- Each star is depicted on the night sky, and its attributes (size, brightness, color, and wish) are rendered dynamically.
 4. CSS and Animation:
 - CSS is used to style the background, make the night sky dark, and animate the stars.
 JavaScript handles the animation and user interaction, updating the canvas as new stars are added.
