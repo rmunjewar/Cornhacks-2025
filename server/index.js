@@ -1,6 +1,7 @@
 import express, { Router } from "express";
 import { Server } from "socket.io";
 import { exampleStars } from "../client/src/ExampleStars.js";
+import cors from 'cors'
 
 // Setting up the server
 const PORT = process.env.PORT || 8080;
