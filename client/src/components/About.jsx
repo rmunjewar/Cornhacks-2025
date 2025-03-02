@@ -12,8 +12,10 @@ function About() {
           <div className="headingAbout">A BRIGHTER FUTURE</div>
           <div className="subheading">Our Mission</div>
           <div className="description">
-            By illuminating the digital cosmos with personal aspirations, we
-            inspire a brighter future—one wish, one star at a time.
+            By illuminating the digital cosmos with personal aspirations,
+          </div>
+          <div className="description">
+            we inspire a brighter future—one wish, one star at a time.
           </div>
           <div className="description">
             Take a moment to sit and simply play with the stars :D
