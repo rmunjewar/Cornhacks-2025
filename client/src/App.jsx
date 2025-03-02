@@ -29,7 +29,7 @@ function App() {
 
   const [starPosition, setStarPosition] = useState({ x: 0, y: 0 });
   const [supernova, setSupernova] = useState(null);
-  const [shootingStars, setShootingStars] = useState(null);
+  const [shootingStars, setShootingStars] = useState([]);
 
   let actualTimeRemaining = 0;
   const [timeRemaining, setTimeRemaining] = useState(0);
