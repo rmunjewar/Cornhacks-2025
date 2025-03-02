@@ -17,10 +17,9 @@ const io = new Server(expressServer, {
     }
 })
 
-// More back-end should go here
 let stars = exampleStars
 
-const TICK_RATE = 100;
+const TICK_RATE = 1000;
 const ROTATE = {
     x: 50,
     y: 100,
@@ -28,7 +27,7 @@ const ROTATE = {
 }
 
 const SHOOTING_STAR_CHANCE = 0
-const SUPERNOVA_CHANCE = 0
+const SUPERNOVA_CHANCE = 0.1
 const UFO_CHANCE = 0
 
 // Function to define the amount of time the client has to wait before placing another star, in milliseconds
@@ -60,19 +59,22 @@ function keepStarCondition(star) {
 
 function triggerRandomEvents() {
     // shooting star
-    if (Math.random() <= SHOOTING_STAR_CHANCE)
+    if (Math.random() <= SHOOTING_STAR_CHANCE) {
         console.log("Look! A shooting star!")
         triggerShootingStar()
+    }
 
     // supernova
-    if (Math.random() <= SUPERNOVA_CHANCE) 
+    if (Math.random() <= SUPERNOVA_CHANCE) {
         console.log("Uh oh, a supernova. Stay safe for the next 22 minutes.")
         triggerSupernova()
+    }
 
     // ufo
-    if (Math.random() <= UFO_CHANCE)
+    if (Math.random() <= UFO_CHANCE) {
         console.log("Look! A UFO!")
         triggerUFO()
+    }
 }
 
 function triggerShootingStar() {
@@ -86,7 +88,12 @@ function triggerShootingStar() {
     io.emit('shooting-star', (shootingStar))
 }
 function triggerSupernova() {
-    // this may be complicated, save for later
+    if (stars.length > 0) {
+        const starIdx = Math.floor(Math.random() * stars.length)
+        const supernova = stars.splice(starIdx, 1)[0]
+        io.emit('supernova', supernova)
+        io.emit('stars-update', (JSON.stringify(stars)))
+    }
 }
 function triggerUFO() {
     const startingSides = ["top", "bottom", "left", "right"]
@@ -156,6 +163,7 @@ io.on('connection', socket => {
     // listening for messages...
     socket.on('star-add', (star) => {
         stars.push(star)
+        io.emit('stars-update', JSON.stringify(stars))
         io.emit('timeout-update', getTimeout())
     })
 })

@@ -14,8 +14,6 @@ import CustomizeStar from "./components/CustomizeStar";
 import Timer from "./components/Timer";
 import "./App.css";
 
-import { exampleStars } from "./ExampleStars";
-
 const objectImages = [corn, cow, ufo, astronaut, moon];
 
 function App() {
@@ -24,8 +22,7 @@ function App() {
   const [appState, setAppState] = useState("view");
   const [showWelcome, setShowWelcome] = useState(true);
   const [starPosition, setStarPosition] = useState({ x: 0, y: 0 });
-  const [superNova, setSuperNova] = useState(null);
-  const [ifNova, setIfNova] = useState(false);
+  const [supernova, setSupernova] = useState(null);
 
   let actualTimeRemaining = 0;
   const [timeRemaining, setTimeRemaining] = useState(0);
@@ -87,8 +84,8 @@ function App() {
       setFloatingObjects([...floatingObjects, shootingStar]);
     });
     socket.on("supernova", (supernova) => {
-      setSuperNova(supernova);
-      setIfNova(true);
+      setSupernova(supernova);
+      setTimeout(() => setSupernova(null), 4000)
     });
     socket.on("ufo", (ufo) => {
       setFloatingObjects([...floatingObjects, ufo]);
@@ -137,14 +134,14 @@ function App() {
       <Timer timeLeft={timeRemaining} />
 
       <RenderObjects objects={floatingObjects} />
-      {ifNova && (
+      {supernova != null && (
         <Star
-          size={superNova.size}
-          color={superNova.color}
-          brightness={superNova.brightness}
-          x={superNova.x}
-          y={superNova.y}
-        ></Star>
+          size={supernova.size}
+          color={supernova.color}
+          brightness={supernova.brightness}
+          x={supernova.x}
+          y={supernova.y}
+          supernova={true} />
       )}
 
       <RenderStars stars={stars} />
@@ -173,6 +170,7 @@ function RenderStars({ stars }) {
           brightness={star.brightness}
           x={star.x}
           y={star.y}
+          supernova={false}
         />
       ))}
     </div>

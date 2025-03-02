@@ -2,7 +2,7 @@ import { useState } from "react";
 import { socket } from "../SocketFactory";
 import "./Star.css";
 
-function Star({ size, color, brightness, x, y, supernova = false }) {
+function Star({ size, color, brightness, x, y, supernova}) {
   let sizeClass = "mediumSize";
   let brightnessClass = "mediumBright";
   let supernovaClass = "";
