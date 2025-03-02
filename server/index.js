@@ -26,9 +26,9 @@ const ROTATE = {
   theta: -0.0002,
 };
 
-const SHOOTING_STAR_CHANCE = 0;
-const SUPERNOVA_CHANCE = 0.0001;
-const UFO_CHANCE = 0.01;
+const SHOOTING_STAR_CHANCE = 0
+const SUPERNOVA_CHANCE = 0.0001
+const UFO_CHANCE = 0.001
 
 // Function to define the amount of time the client has to wait before placing another star, in milliseconds
 function getTimeout() {
@@ -94,67 +94,72 @@ function triggerSupernova() {
     io.emit("supernova", supernova);
   }
 }
+
+// diff paths for objects
+const PATH_TYPES = [
+  "straight", //  straight line
+  "wavy", // wavy pattern
+  "zigzag", //  zigzag pattern
+  "diagonal-up", //  diagonally upward
+  "diagonal-down", //  diagonally downward
+];
+
 function triggerUFO() {
-  const startingSides = ["top", "bottom", "left", "right"];
-  const startingSide =
-    startingSides[Math.floor(Math.random() * startingSides.length)];
-  const possibleObjects = ["cow", "corn", "spaceship", "galileo", "ufo"];
-  const chosenObject =
-    possibleObjects[Math.floor(Math.random() * possibleObjects.length)];
-  let ufo = null;
+    // this is to generate a random height
+    const randomY = Math.floor(Math.random() * 80) + 5;
+    const randomImageIndex = Math.floor(Math.random() * 6);
 
-  switch (startingSide) {
-    case "top":
-      ufo = {
-        x: Math.random() * 100,
-        y: -10,
-        direction: Math.random() * Math.PI + Math.PI,
-      };
-    case "bottom":
-      ufo = {
-        x: Math.random * 100,
-        y: 110,
-        direction: Math.random() * Math.PI,
-      };
-      break;
-    case "left":
-      ufo = {
-        x: -10,
-        y: Math.random() * 100,
-        direction: Math.random() * Math.PI + (Math.PI * 3) / 2,
-      };
-      break;
-    case "right":
-      ufo = {
-        x: 110,
-        y: Math.random() * 100,
-        direction: Math.random() * Math.PI + Math.PI / 2,
-      };
-      break;
-  }
+    const sides = ["left", "right"];
+    const randomSide = sides[Math.floor(Math.random() * sides.length)];
+    const randomPathType =
+      PATH_TYPES[Math.floor(Math.random() * PATH_TYPES.length)];
 
-  if (ufo) {
-    ufo.speed = Math.random() + 1;
-    ufo.object = chosenObject;
-    io.emit("ufo", ufo);
-  }
+    let startX, startY, direction;
+
+    // choosing random left or right side for object
+    if (randomSide === "left") {
+      startX = -5;
+      startY = randomY;
+      direction = "right";
+    } else {
+      startX = 105;
+      startY = randomY;
+      direction = "left";
+    }
+
+    // create new object
+    const ufo = {
+      id: Date.now(),
+      image: randomImageIndex,
+      x: startX,
+      y: startY,
+      direction: direction,
+      pathType: randomPathType,
+      speed: Math.random() * 0.5 + 0.2,
+      amplitude: Math.random() * 2 + 1,
+      frequency: Math.random() * 0.1 + 0.05,
+      phase: 0,
+      originalY: startY,
+      rotation: 0,
+      rotationSpeed: Math.random() * 2 - 1,
+    };
+
+    io.emit('ufo', (ufo))
 }
 
-function tick() {
-  // Update and filter stars
-  rotateStars();
-  stars = stars.filter(keepStarCondition);
+setInterval(() => {
+    // Update and filter stars
+    rotateStars()
+    stars = stars.filter(keepStarCondition)
 
   // Calculate random events
   triggerRandomEvents();
 
-  // debug message for tracking ticks
-  // console.log("tick")
-
-  io.emit("stars-update", JSON.stringify(stars));
-  setTimeout(tick, TICK_RATE);
-}
-tick(); // starts ticking every TICK_RATE milliseconds
+    // debug message for tracking ticks
+    // console.log("tick")
+    
+    io.emit('stars-update', (JSON.stringify(stars)))
+}, TICK_RATE)
 
 // Handles client connection and listens for messages
 io.on("connection", (socket) => {
