@@ -56,13 +56,13 @@ To use, follow these steps:
 1. Clone the Repository.
    ```sh
     git clone https://github.com/your-username/Cornhacks-2025.git
-    cd Cornhacks-2025
+    cd Cornhacks-2025/client
    ```
 2. Install Dependencies.
    ```sh
    npm install
    ```
-3. Run Development Servor.
+3. Run Development Client.
    ```sh
    npm run dev
    ```
