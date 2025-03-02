@@ -20,8 +20,8 @@ function Music() {
   return (
     <div>
       <button className="playMusic" onClick={handlePlayMusic}>
-        {play && <img src="./assets/sound-off.svg" />}
-        {!play && <img src="./assets/sound-high.svg" />}
+        {!play && <img src="./src/assets/sound-off.svg" alt="play" />}
+        {play && <img src="./src/assets/sound-high.svg" alt="pause" />}
       </button>
       <audio
         ref={audioRef}
