@@ -7,6 +7,7 @@ import ufo from "./assets/ufo.jpeg";
 import astronaut from "./assets/astronaut.jpeg";
 import galileo from "./assets/galileo.png";
 import moon from "./assets/moon.jpeg";
+import mango from "./assets/mango.jpeg";
 import Welcome from "./components/Welcome";
 import Star from "./components/Star";
 import Object from "./components/Object";
@@ -18,7 +19,7 @@ import Timer from "./components/Timer";
 import Music from "./components/Music";
 import "./App.css";
 
-const objectImages = [galileo, corn, cow, ufo, astronaut, moon];
+const objectImages = [mango, galileo, corn, cow, ufo, astronaut, moon];
 
 function App() {
   const [stars, setStars] = useState([]);
