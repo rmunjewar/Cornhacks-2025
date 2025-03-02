@@ -10,7 +10,7 @@ This project is a collaborative project that allows users to create a personaliz
   - **Size:** Choose the size of the stars.
   - **Color:** Select a color for the stars.
   - **Wish:** Write a personal wish for each star added.
-- **Responsive:** The app adjusts to different screen sizes, so users can enjoy the night sky on any device.
+- **Responsive:** The app adjusts to different screen sizes, so users can enjoy the night sky.
 
 ## Technologies Used
 - **React:** For building the interactive UI.
