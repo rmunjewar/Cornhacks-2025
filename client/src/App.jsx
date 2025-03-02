@@ -195,7 +195,7 @@ function App() {
           left: "-2.5vw",
           position: "absolute",
           bottom: 0,
-          zIndex: 2,
+          zIndex: 5,
         }}
       >
         <img
