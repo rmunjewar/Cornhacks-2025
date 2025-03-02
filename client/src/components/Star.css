@@ -9,22 +9,7 @@
   cursor: default !important;
 }
 
-/* .size {
-  width: var(--star-size);
-  height: var(--star-size);
-} */
-
-/* .mediumSize {
-  width: 6px;
-  height: 6px;
-}
-
-.largeSize {
-  width: 8px;
-  height: 8px;
-} */
-
-.smallBright {
+/* .smallBright {
   opacity: 0.6;
 }
 
@@ -34,7 +19,7 @@
 
 .largeBright {
   opacity: 1;
-}
+} */
 
 .supernova {
   animation: pulse 4s ease-in-out;
