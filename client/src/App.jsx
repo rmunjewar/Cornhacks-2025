@@ -314,6 +314,7 @@ function RenderStars({ stars }) {
           x={star.x}
           y={star.y}
           supernova={false}
+          wish={star.wish}
         />
       ))}
     </div>

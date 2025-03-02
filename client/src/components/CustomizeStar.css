@@ -8,8 +8,8 @@
 }
 
 .popupBox {
-    width: 43vw;
-    height: 10vw;
+    width: 54vw;
+    height: 11vw;
     display: flex;
     flex-direction: column;
     background: rgba(255, 255, 255, 0.25);
@@ -59,7 +59,7 @@
     justify-content: center;
     align-items: center;
     font-size: 2vh;
-    width: 5vw;
+    width: 8vw;
     height: 2vw;
     /* padding: 1.5vh; */
     margin-top: 1vw;
