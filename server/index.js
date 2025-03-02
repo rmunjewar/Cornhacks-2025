@@ -32,13 +32,13 @@ const ROTATE = {
   theta: -0.0001,
 };
 
-const SHOOTING_STAR_CHANCE = 0.001
+const SHOOTING_STAR_CHANCE = 0.002
 const SUPERNOVA_CHANCE = 0.00005
-const UFO_CHANCE = 0.001
+const UFO_CHANCE = 0.003
 
 // Function to define the amount of time the client has to wait before placing another star, in milliseconds
 function getTimeout() {
-  return 5000 + 55 * Math.pow(stars.length, 2);
+  return 5000 + 5.5 * Math.pow(stars.length, 2);
 }
 
 // Rotates all stars about the point ROTATE
