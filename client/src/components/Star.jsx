@@ -3,7 +3,7 @@ import { socket } from "../SocketFactory";
 import "./Star.css";
 
 
-function Star({ size, color, brightness, x, y, supernova, wish}) {
+function Star({ size, color, brightness, x, y, supernova, shootingStar, wish}) {
   const [isHovering, setIsHovering] = useState(false);
   let supernovaClass = "";
   let shootingStarClass = "";
@@ -12,6 +12,9 @@ function Star({ size, color, brightness, x, y, supernova, wish}) {
     supernovaClass = "supernova";
   }
 
+  if (shootingStar){
+    shootingStarClass = "shootingStar";
+  }
 
   const handleMouseEnter = () => {
     if (wish) {
@@ -30,7 +33,7 @@ function Star({ size, color, brightness, x, y, supernova, wish}) {
       style={{ position: "absolute", top: `${y}vh`, left: `${x}vw` }}
     >
       <div
-        className={`circle ${supernovaClass}`}
+        className={`circle ${supernovaClass} ${shootingStarClass}`}
         style={{
           backgroundColor: color,
           "--glow-color": color,
