@@ -34,7 +34,6 @@ function App() {
   const [showWelcome, setShowWelcome] = useState(true);
 
   const [showAboutButton, setShowAboutButton] = useState(false);
-  const [starPosition, setStarPosition] = useState({x: 0, y: 0})
   const [superNova, setSuperNova] = useState(null);
   const [ifNova, setIfNova] = useState(false);
 
