@@ -42,7 +42,7 @@
   }
   50% {
     transform: scale(2);
-    background-color: rgba(255, 0, 0, 0.801);
+    background-color: rgba(235, 34, 34, 0.685);
     opacity: 1;
   }
   75% {
