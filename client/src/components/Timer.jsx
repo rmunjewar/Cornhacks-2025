@@ -5,7 +5,11 @@ function Timer({ timeLeft }) {
 
   return (
     <div className="timer">
-      <p>{seconds} seconds before you can place a star.</p>
+      {(seconds > 0)? (
+        <p>{seconds} seconds before you can place a star.</p>
+      ) : (
+        <p>Click anywhere to place a star.</p>
+      )}
     </div>
   );
 }

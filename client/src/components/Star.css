@@ -42,12 +42,17 @@
   }
   50% {
     transform: scale(2);
-    background-color: red;
+    background-color: rgba(235, 34, 34, 0.685);
     opacity: 1;
   }
   75% {
     transform: scale(2.5);
-    background-color: orange;
+    background-color: rgba(255, 166, 0, 0.784);
+    opacity: 0.5;
+  }
+  85% {
+    transform: scale(3);
+    background-color: rgb(244, 207, 139);
     opacity: 0.5;
   }
   100% {
@@ -56,6 +61,6 @@
   }
 }
 
-.superNovaClass {
+.supernova {
   animation: growAndDisappear 3s ease-out forwards;
 }

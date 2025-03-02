@@ -1,0 +1,32 @@
+.galileo {
+  width: 2.5vw;
+  height: 2.5vw;
+  opacity: 80%;
+}
+
+.corn {
+  width: 2vw;
+  height: 2vw;
+}
+
+.cow {
+  width: 2vw;
+  height: 2vw;
+}
+
+.ufo {
+  width: 2vw;
+  height: 2vw;
+}
+
+.astronaut {
+  width: 3vw;
+  height: 3vw;
+}
+
+.moon {
+  width: 2vw;
+  height: 2vw;
+  box-shadow: 0 0 1.5vw rgb(240, 240, 114), 0 0 3vw rgb(240, 240, 114),
+    0 0 4vw rgb(240, 240, 114);
+}
