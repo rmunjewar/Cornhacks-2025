@@ -32,7 +32,7 @@ const ROTATE = {
   theta: -0.0001,
 };
 
-const SHOOTING_STAR_CHANCE = 0.8
+const SHOOTING_STAR_CHANCE = 0.05
 const SUPERNOVA_CHANCE = 0.0001
 const UFO_CHANCE = 0.001
 
@@ -66,7 +66,7 @@ function keepStarCondition(star) {
 function triggerRandomEvents() {
   // shooting star
   if (Math.random() <= SHOOTING_STAR_CHANCE) {
-    console.log("Look! A shooting star!");
+    // console.log("Look! A shooting star!");
     triggerShootingStar();
   }
 
