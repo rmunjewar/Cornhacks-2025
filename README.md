@@ -10,7 +10,7 @@ This project is a collaborative project that allows users to create a personaliz
   - **Size:** Choose the size of the stars.
   - **Color:** Select a color for the stars.
   - **Wish:** Write a personal wish for each star added.
-- **Responsive:** The app adjusts to different screen sizes, so users can enjoy the night sky on any device.
+- **Responsive:** The app adjusts to different screen sizes, so users can enjoy the night sky.
 
 ## Technologies Used
 - **React:** For building the interactive UI.
@@ -29,7 +29,7 @@ This project is a collaborative project that allows users to create a personaliz
 - Pick a color from a list.
 - Write a personal wish for that specific star.
 3. Rendering Stars:
-- Each star is drawn on a canvas, and its attributes (size, brightness, color, and wish) are rendered dynamically.
+- Each star is depicted on the night sky, and its attributes (size, brightness, color, and wish) are rendered dynamically.
 4. CSS and Animation:
-- CSS is used to style the background, make the night sky dark, and animate the stars.
+- CSS is used to style the background of the night sky and animate the stars and other objects.
 JavaScript handles the animation and user interaction, updating the canvas as new stars are added.
