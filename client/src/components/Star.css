@@ -49,12 +49,13 @@
   position: absolute;
   background-color: rgba(255, 255, 255, 0.7);
   color: black;
-  padding: 8px 12px;
+  padding: 10px 15px;
   border-radius: 4px;
-  font-size: 13.5px;
-  max-width: 100px;
+  font-size: 12px;
+  max-width: 300px;
+  min-width: 150px;
   word-wrap: break-word;
-  top: -40px;
+  top: -45px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
@@ -63,6 +64,18 @@
   text-align: center;
   box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
   border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.wish-input-container {
+  position: relative;
+  margin-top: 10px;
+}
+
+.character-count {
+  font-size: 12px;
+  color: #aaa;
+  text-align: right;
+  margin-top: 4px;
 }
 
 @keyframes pulse {
