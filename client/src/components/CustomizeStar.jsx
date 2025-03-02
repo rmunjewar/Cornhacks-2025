@@ -63,6 +63,8 @@ function CustomizeStar({ starX, starY, onAddStar }) {
                 size="small"
                 value={size}
                 color="#FFCB6C"
+                min={4}
+                max={8}
                 onChange={(e) => setSize(e.target.value)}
               />
               {/* <select value={size} onChange={(e) => setSize(e.target.value)}>
@@ -79,6 +81,8 @@ function CustomizeStar({ starX, starY, onAddStar }) {
                 size="small"
                 value={brightness}
                 color="#FFCB6C"
+                min={0.6}
+                max={1}
                 onChange={(e) => setBrightness(e.target.value)}
               />
             </div>
