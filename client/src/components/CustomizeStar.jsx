@@ -83,7 +83,8 @@ function CustomizeStar({ starX, starY, onAddStar }) {
                 color="#FFCB6C"
                 min={0.6}
                 max={1}
-                onChange={(e) => setBrightness(e.target.value)}
+                step={0.05}
+                onChange={(e) => setBrightness(parseFloat(e.target.value))}
               />
             </div>
 
