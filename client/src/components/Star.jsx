@@ -5,16 +5,16 @@ import "./Star.css";
 
 function Star({ size, color, brightness, x, y, supernova, wish }) {
   const [isHovering, setIsHovering] = useState(false);
-  let sizeClass = "mediumSize";
+  // let sizeClass = "mediumSize";
   let brightnessClass = "mediumBright";
   let supernovaClass = "";
   let shootingStarClass = "";
 
-  if (size === "small") {
-    sizeClass = "smallSize";
-  } else if (size === "large") {
-    sizeClass = "largeSize";
-  }
+  // if (size === "small") {
+  //   sizeClass = "smallSize";
+  // } else if (size === "large") {
+  //   sizeClass = "largeSize";
+  // }
 
   if (brightness === "dim") {
     brightnessClass = "smallBright";
@@ -44,10 +44,12 @@ function Star({ size, color, brightness, x, y, supernova, wish }) {
       style={{ position: "absolute", top: `${y}vh`, left: `${x}vw` }}
     >
       <div
-        className={`circle ${sizeClass} ${brightnessClass} ${supernovaClass}`}
+        className={`circle ${brightnessClass} ${supernovaClass}`}
         style={{
           backgroundColor: color,
           "--glow-color": color,
+          width: `${size}px`,
+          height: `${size}px`
         }}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}

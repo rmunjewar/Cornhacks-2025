@@ -9,12 +9,12 @@
   cursor: default !important;
 }
 
-.smallSize {
-  width: 4px;
-  height: 4px;
-}
+/* .size {
+  width: var(--star-size);
+  height: var(--star-size);
+} */
 
-.mediumSize {
+/* .mediumSize {
   width: 6px;
   height: 6px;
 }
@@ -22,7 +22,7 @@
 .largeSize {
   width: 8px;
   height: 8px;
-}
+} */
 
 .smallBright {
   opacity: 0.6;
