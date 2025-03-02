@@ -19,16 +19,16 @@ const io = new Server(expressServer, {
 
 let stars = exampleStars
 
-const TICK_RATE = 1000;
+const TICK_RATE = 200;
 const ROTATE = {
     x: 50,
     y: 100,
-    theta: -0.001
+    theta: -0.0002
 }
 
 const SHOOTING_STAR_CHANCE = 0
-const SUPERNOVA_CHANCE = 0.1
-const UFO_CHANCE = 0
+const SUPERNOVA_CHANCE = 0.0001
+const UFO_CHANCE = 0.01
 
 // Function to define the amount of time the client has to wait before placing another star, in milliseconds
 function getTimeout() {
