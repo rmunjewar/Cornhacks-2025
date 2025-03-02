@@ -5,10 +5,10 @@ This project is a collaborative project that allows users to create a personaliz
 ---
 ![GitHub contributors](https://img.shields.io/github/contributors/rmunjewar/Cornhacks-2025)
 
-👩‍🚀 Sam Wallenburg
-👩‍🚀 Riddhi Munjewar [@rmunjewar](https://github.com/rmunjewar)
-👩‍🚀 Clara Delzell
-🧑‍🚀 Cole Welstead
+- 👩‍🚀 [@SWally19](https://github.com/SWally19)
+- 👩‍🚀 [@rmunjewar](https://github.com/rmunjewar)
+- 👩‍🚀 [@cdelzell](https://github.com/cdelzell)
+- 🧑‍🚀 [@cwelstead](https://github.com/cwelstead)
 
 ---
 ## Features
