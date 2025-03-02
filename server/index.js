@@ -13,7 +13,7 @@ const expressServer = app.listen(PORT, () => {
 const io = new Server(expressServer, {
   cors: {
     origin:
-      process.env.NODE_ENV === "production" ? false : ["http://localhost:5173"],
+      process.env.NODE_ENV === "production" ? false : ["http://localhost:5173", "https://a-brighter-future.onrender.com"],
   },
 });
 
