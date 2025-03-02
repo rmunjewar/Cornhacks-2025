@@ -13,9 +13,9 @@ app.use(cors({ origin: ["http://localhost:5173", "https://a-brighter-future-oqqn
 
 const io = new Server(server, {
   cors: {
-    origin:
-      process.env.NODE_ENV === "production" ? false : ["http://localhost:5173", "https://a-brighter-future-oqqn.onrender.com"],
-      methods: ["GET", "POST"],
+    origin: ["http://localhost:5173", "https://a-brighter-future-oqqn.onrender.com"],
+    methods: ["GET", "POST"],
+    credentials: true,
   },
 });
 
