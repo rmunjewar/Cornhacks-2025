@@ -14,6 +14,7 @@ const io = new Server(expressServer, {
   cors: {
     origin:
       process.env.NODE_ENV === "production" ? false : ["http://localhost:5173", "https://a-brighter-future-oqqn.onrender.com"],
+      methods: ["GET", "POST"],
   },
 });
 
