@@ -1,4 +1,4 @@
-import { act, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { socket } from "./SocketFactory";
 import nightSky from "./assets/night_sky.jpg";
 import corn from "./assets/corn.jpeg";
@@ -15,6 +15,15 @@ import Timer from "./components/Timer";
 import "./App.css";
 
 const objectImages = [corn, cow, ufo, astronaut, moon];
+
+// Path types for objects to follow
+const PATH_TYPES = [
+  "straight", //  straight line
+  "wavy", // wavy pattern
+  "zigzag", //  zigzag pattern
+  "diagonal-up", //  diagonally upward
+  "diagonal-down", //  diagonally downward
+];
 
 function App() {
   const [stars, setStars] = useState([]);
@@ -34,6 +43,7 @@ function App() {
     setTimeRemaining(actualTimeRemaining);
     setTimeout(decreaseTimer, 1000);
   }
+
   function decreaseTimer() {
     if (actualTimeRemaining > 2000) {
       actualTimeRemaining -= 1000;
@@ -46,6 +56,123 @@ function App() {
     }
   }
 
+  const createFloatingObject = () => {
+    // this is to generate a random height
+    const randomY = Math.floor(Math.random() * 80) + 5;
+    const randomImageIndex = Math.floor(Math.random() * objectImages.length);
+
+    const sides = ["left", "right"];
+    const randomSide = sides[Math.floor(Math.random() * sides.length)];
+    const randomPathType =
+      PATH_TYPES[Math.floor(Math.random() * PATH_TYPES.length)];
+
+    let startX, startY, direction;
+
+    // choosing random left or right side for object
+    if (randomSide === "left") {
+      startX = -5;
+      startY = randomY;
+      direction = "right";
+    } else {
+      startX = 105;
+      startY = randomY;
+      direction = "left";
+    }
+
+    // create new object
+    const newObject = {
+      id: Date.now(),
+      image: objectImages[randomImageIndex],
+      x: startX,
+      y: startY,
+      direction: direction,
+      pathType: randomPathType,
+      speed: Math.random() * 0.5 + 0.2,
+      amplitude: Math.random() * 2 + 1,
+      frequency: Math.random() * 0.1 + 0.05,
+      phase: 0,
+      originalY: startY,
+      rotation: 0,
+      rotationSpeed: Math.random() * 2 - 1,
+    };
+
+    setFloatingObjects((prevObjects) => [...prevObjects, newObject]);
+  };
+
+  // updating properties of object, new x and y
+  const updateFloatingObjects = () => {
+    setFloatingObjects((prevObjects) => {
+      return prevObjects
+        .map((obj) => {
+          // calc new x
+          let newX = obj.x;
+          if (obj.direction === "right") {
+            newX = obj.x + obj.speed;
+          } else {
+            newX = obj.x - obj.speed;
+          }
+
+          // calc new y
+          let newY = obj.y;
+          let newPhase = obj.phase + obj.frequency;
+          let newRotation = obj.rotation + obj.rotationSpeed;
+
+          // choosing path time, this is calc next step
+          switch (obj.pathType) {
+            case "wavy":
+              // SINE WAVEEEEE
+              newY = obj.originalY + Math.sin(newPhase) * obj.amplitude;
+              break;
+            case "zigzag":
+              // ZIG ZAG MOVEMENTTTTT
+              newY =
+                obj.originalY +
+                ((newPhase % (2 * Math.PI)) / Math.PI - 1) * obj.amplitude;
+              break;
+            case "diagonal-up":
+              newY = obj.y - 0.05;
+              break;
+            case "diagonal-down":
+              newY = obj.y + 0.05;
+              break;
+            default:
+              break;
+          }
+
+          // returning new object
+          return {
+            ...obj,
+            x: newX,
+            y: newY,
+            phase: newPhase,
+            rotation: newRotation,
+          };
+        })
+        .filter((obj) => {
+          if (obj.direction === "right") {
+            return obj.x < 105; // remove fromm screen left
+          } else {
+            return obj.x > -5; // remove from screen right
+          }
+        });
+    });
+  };
+
+  useEffect(() => {
+    // using interval effect
+    const createInterval = setInterval(createFloatingObject, 30000);
+
+    createFloatingObject();
+
+    return () => clearInterval(createInterval);
+  }, []);
+
+  useEffect(() => {
+    // using move interval effect
+    const moveInterval = setInterval(updateFloatingObjects, 50);
+    return () => clearInterval(moveInterval);
+  }, []);
+
   useEffect(() => {
     const timeout = setTimeout(() => {
       setShowWelcome(false);
@@ -56,10 +183,9 @@ function App() {
 
   const handleClick = (event) => {
     if (appState === "view") {
-      const x = event.clientX; // X position of click in pixels
-      const y = event.clientY; // Y position of click in pixels
+      const x = event.clientX;
+      const y = event.clientY;
 
-      // Get the viewport dimensions
       const viewportWidth = window.innerWidth;
       const viewportHeight = window.innerHeight;
 
@@ -81,15 +207,24 @@ function App() {
     });
 
     socket.on("shooting-star", (shootingStar) => {
-      setFloatingObjects([...floatingObjects, shootingStar]);
+      setFloatingObjects((prevObjects) => [...prevObjects, shootingStar]);
     });
     socket.on("supernova", (supernova) => {
       setSupernova(supernova);
-      setTimeout(() => setSupernova(null), 4000)
+      setTimeout(() => setSupernova(null), 4000);
     });
     socket.on("ufo", (ufo) => {
-      setFloatingObjects([...floatingObjects, ufo]);
+      setFloatingObjects((prevObjects) => [...prevObjects, ufo]);
     });
+
+    // this is to clean up all the event listeners after use
+    return () => {
+      socket.off("stars-update");
+      socket.off("timeout-update");
+      socket.off("shooting-star");
+      socket.off("supernova");
+      socket.off("ufo");
+    };
   }, []);
 
   return (
@@ -112,6 +247,9 @@ function App() {
         style={{
           width: "105vw",
           left: "-2.5vw",
+          position: "absolute",
+          bottom: 0,
+          zIndex: 2,
         }}
       >
         <img
@@ -141,7 +279,8 @@ function App() {
           brightness={supernova.brightness}
           x={supernova.x}
           y={supernova.y}
-          supernova={true} />
+          supernova={true}
+        />
       )}
 
       <RenderStars stars={stars} />
@@ -153,7 +292,13 @@ function RenderObjects({ objects }) {
   return (
     <div>
       {objects.map((object, index) => (
-        <Object key={index} image={object.image} x={object.x} y={object.y} />
+        <Object
+          key={object.id || index}
+          image={object.image}
+          x={object.x}
+          y={object.y}
+          rotation={object.rotation}
+        />
       ))}
     </div>
   );
