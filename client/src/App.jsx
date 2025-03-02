@@ -12,6 +12,7 @@ import Star from "./components/Star";
 import Object from "./components/Object";
 import forestSkyline from "./assets/forest-skyline.png";
 import CustomizeStar from "./components/CustomizeStar";
+import About from "./components/About";
 import Timer from "./components/Timer";
 import "./App.css";
 
@@ -31,8 +32,15 @@ function App() {
   const [floatingObjects, setFloatingObjects] = useState([]);
   const [appState, setAppState] = useState("view");
   const [showWelcome, setShowWelcome] = useState(true);
+
+  const [showAboutButton, setShowAboutButton] = useState(false);
+  const [starPosition, setStarPosition] = useState({x: 0, y: 0})
+  const [superNova, setSuperNova] = useState(null);
+  const [ifNova, setIfNova] = useState(false);
+
   const [starPosition, setStarPosition] = useState({ x: 0, y: 0 });
   const [supernova, setSupernova] = useState(null);
+
 
   let actualTimeRemaining = 0;
   const [timeRemaining, setTimeRemaining] = useState(0);
@@ -174,6 +182,7 @@ function App() {
   useEffect(() => {
     const timeout = setTimeout(() => {
       setShowWelcome(false);
+      setShowAboutButton(true);
     }, 3000);
 
     return () => clearTimeout(timeout);
@@ -268,6 +277,7 @@ function App() {
       )}
       {showWelcome && <Welcome />}
       <Timer timeLeft={timeRemaining} />
+      {showAboutButton && <About />}
 
       <RenderObjects objects={floatingObjects} />
       {supernova != null && (
