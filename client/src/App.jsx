@@ -24,10 +24,9 @@ function App() {
   const [appState, setAppState] = useState("view");
   const [showWelcome, setShowWelcome] = useState(true);
   const [showAboutButton, setShowAboutButton] = useState(false);
-  
+
   const [starPosition, setStarPosition] = useState({ x: 0, y: 0 });
   const [supernova, setSupernova] = useState(null);
-
 
   let actualTimeRemaining = 0;
   const [timeRemaining, setTimeRemaining] = useState(0);
@@ -148,9 +147,7 @@ function App() {
       setTimeRemaining(timeRemaining);
     });
 
-    socket.on("shooting-star", (shootingStar) => {
-
-    });
+    socket.on("shooting-star", (shootingStar) => {});
     socket.on("supernova", (supernova) => {
       setSupernova(supernova);
       setTimeout(() => setSupernova(null), 4000);
@@ -261,6 +258,7 @@ function RenderStars({ stars }) {
           x={star.x}
           y={star.y}
           supernova={false}
+          shootingStar={false}
         />
       ))}
     </div>
