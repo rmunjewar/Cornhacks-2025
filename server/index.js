@@ -26,7 +26,7 @@ const ROTATE = {
   theta: -0.0001,
 };
 
-const SHOOTING_STAR_CHANCE = 0
+const SHOOTING_STAR_CHANCE = 0.1
 const SUPERNOVA_CHANCE = 0.0001
 const UFO_CHANCE = 0.001
 

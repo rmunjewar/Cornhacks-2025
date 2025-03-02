@@ -27,6 +27,7 @@ function App() {
 
   const [starPosition, setStarPosition] = useState({ x: 0, y: 0 });
   const [supernova, setSupernova] = useState(null);
+  const [shootingStar, setShootingStar] = useState(null);
 
   let actualTimeRemaining = 0;
   const [timeRemaining, setTimeRemaining] = useState(0);
@@ -147,7 +148,10 @@ function App() {
       setTimeRemaining(timeRemaining);
     });
 
-    socket.on("shooting-star", (shootingStar) => {});
+    socket.on("shooting-star", (shootingStar) => {
+      setShootingStar(shootingStar);
+      setTimeout(() => setShootingStar(null), 4000);
+    });
     socket.on("supernova", (supernova) => {
       setSupernova(supernova);
       setTimeout(() => setSupernova(null), 4000);
