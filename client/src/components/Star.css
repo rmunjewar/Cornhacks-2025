@@ -9,18 +9,6 @@
   cursor: default !important;
 }
 
-/* .smallBright {
-  opacity: 0.6;
-}
-
-.mediumBright {
-  opacity: 0.8;
-}
-
-.largeBright {
-  opacity: 1;
-} */
-
 .supernova {
   animation: pulse 4s ease-in-out;
 }
@@ -41,11 +29,7 @@
   min-width: 150px;
   word-wrap: break-word;
   margin-left: 1vw;
-  /* top: 50%;
-  left: 100%;
-  transform: translateY(60%) translateX(-60%); */
-  left: 100%; /* Moves the tooltip completely to the right */
-  top: 50%; /* Aligns vertically with the object */
+  top: 50%;
   transform: translateY(-50%);
   z-index: 10;
   pointer-events: none;

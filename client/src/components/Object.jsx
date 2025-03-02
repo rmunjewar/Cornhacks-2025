@@ -1,7 +1,6 @@
 import "./Object.css";
 
 function Object({ image, x, y, rotation = 0 }) {
-  // galileo, corn, cow, ufo, astronaut, moon
   let imageClass = image;
 
   return (
