@@ -6,7 +6,8 @@ function Music() {
   const audioRef = useRef(null);
   const [play, setPlay] = useState(false);
 
-  const handlePlayMusic = () => {
+  const handlePlayMusic = (e) => {
+    e.stopPropagation();
     if (audioRef.current) {
       if (play) {
         audioRef.current.pause(); // Pause audio
